@@ -1,0 +1,41 @@
+.words {
+  padding: 20px;
+}
+.words__title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px 10px;
+  color: rgb(105, 74, 59);
+}
+.words__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.words__wrapper {
+  max-height: 70vh;
+  overflow: auto;
+  padding: 20px 0px;
+  margin: 20px 0px;
+}
+.words__aside {
+  flex: 0 1 20%;
+}
+.words__list {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 80%;
+}
+
+.main__title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 57px;
+  text-transform: uppercase;
+  color: rgb(105, 74, 59);
+}/*# sourceMappingURL=PageWords.css.map */

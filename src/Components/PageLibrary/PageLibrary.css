@@ -1,0 +1,52 @@
+.library {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 137%;
+  color: rgb(243, 243, 243);
+}
+.library__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.library p::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(105, 74, 59);
+  display: inline-block;
+  margin-right: 5px;
+}
+.library__body {
+  margin: 20px -15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.library__text {
+  display: flex;
+  text-align: start;
+  flex: 0 1 40%;
+  margin: 15px;
+  padding-top: 30px;
+  font-size: 20px;
+}
+.library__slide {
+  flex: 0 1 35%;
+  width: 100%;
+  justify-content: center;
+  margin: 15px;
+  min-height: 700px;
+}
+
+.main__title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 57px;
+  text-transform: uppercase;
+  color: rgb(105, 74, 59);
+}/*# sourceMappingURL=PageLibrary.css.map */

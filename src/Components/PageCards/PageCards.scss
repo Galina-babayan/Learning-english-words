@@ -1,0 +1,56 @@
+//--------cards---------------------------------
+
+.cards {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 137%;
+  color: rgba(243, 243, 243, 1);
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  &__game {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    border-radius: 20px;
+    height: 100%;
+    margin-bottom: 50px;
+    width: 100%;
+    flex: 0 1 80%;
+
+    a {
+      color: rgb(118, 63, 37);
+    }
+  }
+
+  &__item-body {
+    border-radius: 20px;
+  }
+
+  &__row {
+    display: flex;
+    margin: 0 auto;
+  }
+}
+
+.main__title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 57px;
+  text-transform: uppercase;
+  color: rgb(105, 74, 59);
+}

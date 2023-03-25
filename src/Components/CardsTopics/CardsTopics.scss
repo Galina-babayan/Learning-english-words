@@ -1,0 +1,45 @@
+//------список тем------------------------------------------
+.cards {
+  &__topics {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgb(217, 233, 234);
+    margin-right: 20px;
+    flex: 0 1 20%;
+    max-width: 150px;
+  }
+  &__topics-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px 10px;
+    color: rgb(105, 74, 59);
+    border-bottom: 0.1px solid rgb(105, 74, 59);
+    margin: 0px;
+  }
+
+  &__topics-list {
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 15px;
+  }
+
+  &__topics-subject {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(105, 74, 59);
+    border: 1px solid #425b69;
+    padding: 5px;
+    margin: 2px 0px;
+    // background-color: #e7cdac;
+    border-radius: 7px;
+    max-width: 80%;
+  }
+
+  &__topics-subject:hover {
+    box-shadow: 2px 2px 2px #425b69;
+    transition: all 0.2s ease 0s;
+    outline: solid 1px #2d404b;
+  }
+}

@@ -1,0 +1,30 @@
+.main__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.main__button {
+  border-radius: 37px;
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 36px;
+  letter-spacing: 0.2px;
+  padding: 2px 15px;
+  height: 40px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 105%;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(105, 74, 59);
+  border: 0.1px solid rgb(105, 74, 59);
+}
+
+.main__button:hover {
+  background: rgb(154, 114, 86);
+  color: rgb(229, 220, 210);
+}/*# sourceMappingURL=MainButton.css.map */
