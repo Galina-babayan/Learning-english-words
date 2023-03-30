@@ -1,9 +1,10 @@
+@import "../vars.scss";
+
 //---------------------------------------------library-----------------------------------
 .library {
   font-weight: 400;
   font-size: 18px;
   line-height: 137%;
-  color: rgba(243, 243, 243, 1);
 
   &__top {
     display: flex;
@@ -15,15 +16,15 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgb(105, 74, 59);
+    background-color: $main-color;
     display: inline-block;
-    margin-right: 5px;
+    margin: 0px 7px 1px 0px;
   }
   &__body {
-    margin: 20px -15px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 20px -15px;
   }
   &__text {
     display: flex;
@@ -46,10 +47,9 @@
   display: flex;
   justify-content: center;
   padding: 15px;
-
   font-weight: 700;
   font-size: 22px;
   line-height: 57px;
   text-transform: uppercase;
-  color: rgb(105, 74, 59);
+  color: $main-color;
 }

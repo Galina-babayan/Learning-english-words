@@ -1,4 +1,4 @@
-import "./CardsFooter.css";
+import "./CardsFooter.scss";
 
 export default function CardsFooter(props) {
   let { textButton, textLink } = props;
@@ -10,9 +10,8 @@ export default function CardsFooter(props) {
         </a>
       </div>
       <div className="cards__link">
-        <a href="">{textLink}</a>
+        <a href="#">{textLink}</a>
       </div>
     </div>
   );
 }
-// не знаю, как делать потом разные подписи на кнопке и на ссылке

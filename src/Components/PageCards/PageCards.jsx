@@ -1,4 +1,4 @@
-import "./PageCards.css";
+import "./PageCards.scss";
 
 import CardsTopics from "../CardsTopics/CardsTopics";
 import WordCard from "../WordCard/WordCard";
@@ -15,8 +15,11 @@ export default function PageCards() {
               <div className="cards__game">
                 <CardsTopics />
                 <WordCard
+                  kay="1"
                   meaning="to go away from a place or a situation, either permanently or for a temporary period"
                   en="leave"
+                  tr="[ liːv ]"
+                  ru="уходить, уезжать, оставлять"
                 />
               </div>
             </div>

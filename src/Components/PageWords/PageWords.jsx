@@ -1,63 +1,27 @@
-import "./PageWords.css";
+import "./PageWords.scss";
 import MainButton from "../MainButton/MainButton";
 import WordString from "../WordString/WordString";
 import StringAdd from "../StringAdd/StringAdd";
 
-import Json from "../Json/Json";
+import Json from "../Utils/Json";
+import { useState } from "react";
 
 let words = JSON.parse(Json);
 
-let werbs = words.filter((item) => item.subject === `глаголы`);
-
-console.log(werbs);
-console.log(werbs.length);
-
-let professions = words.filter(function (item) {
-  return item.subject === `профессия`;
-});
-console.log(professions);
-
-let kitchen = words.filter(function (item) {
-  return item.subject === `кухонные принадлежности`;
-});
-console.log(kitchen);
-
-let transport = words.filter(function (item) {
-  return item.subject === `транспорт`;
-});
-console.log(transport);
-
-let clothes = words.filter(function (item) {
-  return item.subject === `одежда`;
-});
-console.log(clothes);
-
-let animals = words.filter(function (item) {
-  return item.subject === `животные`;
-});
-console.log(animals);
-
-let plants = words.filter(function (item) {
-  return item.subject === `съедобные растения`;
-});
-console.log(plants);
-
-let feelings = words.filter(function (item) {
-  return item.subject === `чувства`;
-});
-console.log(feelings);
-
-let colors = words.filter(function (item) {
-  return item.subject === `цвета`;
-});
-console.log(colors);
-
-let sea = words.filter(function (item) {
-  return item.subject === `морская тема`;
-});
-console.log(sea);
+// Почему-то кнопка "добавить слово" (если я нажимаю кнопку "Х" на строке) срабатывает только один раз.
+// Второй раз не появляется пустая строка для ввода.
 
 export default function PageWords() {
+  const [addWord, setAddWord] = useState(false);
+  const [newString, setdelString] = useState(true);
+
+  function newWord() {
+    setAddWord(!addWord);
+  }
+
+  function delString() {
+    setdelString(false);
+  }
   return (
     <section className="words">
       <div className="words__container container">
@@ -65,9 +29,19 @@ export default function PageWords() {
 
         <div className="words__body">
           <div className="words__aside">
-            <MainButton text="Добавить слово" />
+            <MainButton funcClick={newWord} text="Добавить слово" />
           </div>
-          <StringAdd />
+          {addWord && newString && <StringAdd delString={delString} />}
+
+          <section className="words__top">
+            <div className="words-item__top">
+              <div className="words-item__subtitle">Слово:</div>
+              <div className="words-item__subtitle">транскрипция:</div>
+              <div className="words-item__subtitle">перевод:</div>
+              <div className="words-item__subtitle">Тема:</div>
+            </div>
+          </section>
+
           <div className="words__wrapper">
             <div className="words__list">
               {words.map((word) => (

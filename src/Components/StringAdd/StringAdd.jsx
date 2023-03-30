@@ -1,10 +1,9 @@
-import "../WordString/WordString.css";
+import "../WordString/WordString.scss";
 
-import iconRedact from "../../images/iconRedact.png";
 import iconDel from "../../images/iconDel.png";
 import iconSave from "../../images/iconSave.png";
 
-export default function StringAdd() {
+export default function StringAdd(props) {
   return (
     <details className="words__add">
       <summary>
@@ -36,21 +35,15 @@ export default function StringAdd() {
 
           <div className="words__service">
             <div className="words__button-save">
-              <a href="" className="words__result">
+              <div href="#" className="words__result">
                 <img src={iconSave} alt="" />
-              </a>
+              </div>
             </div>
 
             <div className="words__button">
-              <a href="" className="words__result">
-                <img src={iconRedact} alt="" />
-              </a>
-            </div>
-
-            <div className="words__button">
-              <a href="" className="words__result">
+              <div onClick={props.delString} href="#" className="words__result">
                 <img src={iconDel} alt="" />
-              </a>
+              </div>
             </div>
           </div>
         </div>

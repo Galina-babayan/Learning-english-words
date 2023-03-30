@@ -1,4 +1,4 @@
-import "./CardsTopics.css";
+import "./CardsTopics.scss";
 
 export default function CardsTopics() {
   return (
@@ -6,34 +6,34 @@ export default function CardsTopics() {
       <p className="cards__topics-title">Выберите тему</p>
       <ul className="cards__topics-list">
         <li className="cards__topics-subject">
-          <a href="">Глаголы</a>
+          <a href="#">Глаголы</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Профессии</a>
+          <a href="#">Профессии</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Кухня</a>
+          <a href="#">Кухня</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Транспорт</a>
+          <a href="#">Транспорт</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Одежда</a>
+          <a href="#">Одежда</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Животные</a>
+          <a href="#">Животные</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Съедобные растения</a>
+          <a href="#">Съедобные растения</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Чувства</a>
+          <a href="#">Чувства</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Цвета</a>
+          <a href="#">Цвета</a>
         </li>
         <li className="cards__topics-subject">
-          <a href="">Море</a>
+          <a href="#">Море</a>
         </li>
       </ul>
     </div>

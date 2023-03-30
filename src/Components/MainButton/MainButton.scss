@@ -1,13 +1,13 @@
+@import "../vars.scss";
+
 .main__buttons {
   display: flex;
   justify-content: center;
 }
 .main__button {
+  @include flex;
   border-radius: 37px;
   margin: 10px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 5px 36px;
   letter-spacing: 0.2px;
   padding: 2px 15px;
@@ -19,10 +19,15 @@
   line-height: 105%;
   text-transform: uppercase;
   text-align: center;
-  color: rgb(105, 74, 59);
-  border: 0.1px solid rgb(105, 74, 59);
+  color: $main-color;
+  border: 0.1px solid $color-hover;
+  max-width: 100px;
+  cursor: pointer;
 }
 .main__button:hover {
-  background: rgb(154, 114, 86);
+  background: rgba(148, 118, 166, 0.829);
   color: rgba(229, 220, 210, 1);
+  box-shadow: 2px 2px 2px $box-shadow;
+  transition: all 0.4s ease 0s;
+  outline: solid 1px rgb(69, 56, 122);
 }

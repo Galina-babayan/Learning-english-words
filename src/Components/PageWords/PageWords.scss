@@ -1,24 +1,24 @@
+@import "../vars.scss";
+
 //-----words-------------------------------------
 .words {
   padding: 20px;
+  color: $main-color;
+
   &__title {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
     padding: 20px 10px;
-    color: rgb(105, 74, 59);
   }
 
   &__body {
-    display: flex;
+    @include flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   &__wrapper {
     max-height: 70vh;
-    //overflow-y: scroll;
     overflow: auto;
     padding: 20px 0px;
     margin: 20px 0px;
@@ -28,8 +28,7 @@
     flex: 0 1 20%;
   }
   &__list {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     flex: 0 1 80%;
   }
 }
@@ -38,10 +37,9 @@
   display: flex;
   justify-content: center;
   padding: 15px;
-
   font-weight: 700;
   font-size: 22px;
   line-height: 57px;
   text-transform: uppercase;
-  color: rgb(105, 74, 59);
+  color: $main-color;
 }

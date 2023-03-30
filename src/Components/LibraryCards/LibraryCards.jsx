@@ -1,4 +1,4 @@
-import "./LibraryCards.css";
+import "./LibraryCards.scss";
 import MainButton from "../MainButton/MainButton";
 import cN from "classnames";
 

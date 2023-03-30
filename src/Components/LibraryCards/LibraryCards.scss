@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 //------library__column---------------------------------------
 .library__column {
   flex: 0 1 33.333%;
@@ -5,36 +7,36 @@
   padding-right: 15px;
   min-height: 100%;
   margin-bottom: 20px;
+  color: $main-color;
 }
 
 .library-item:hover {
-  box-shadow: 5px 5px 5px #425b69;
+  box-shadow: 5px 5px 5px $box-shadow;
   transition: all 0.3s ease 0s;
-  outline: solid 4px #c39d6a;
+  outline: solid 4px $outline-color;
 }
 
 .first {
-  background-color: rgba(229, 220, 210, 1);
+  background-color: rgba(227, 223, 220, 1);
 }
 .second {
-  background-color: rgba(255, 242, 200, 1);
+  background-color: rgba(197, 209, 195, 0.892);
 }
 .therd {
-  background-color: rgba(193, 209, 182, 0.938);
+  background-color: rgba(234, 224, 204, 1);
 }
 .fourth {
-  background-color: rgb(217, 233, 234);
+  background-color: rgba(212, 212, 229, 1);
 }
 
 .library-item {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   height: 100%;
   border-radius: 20px;
   height: 100%;
   max-width: 410px;
   a {
-    color: rgb(118, 63, 37);
+    color: $main-color;
   }
 
   &__image {
@@ -47,8 +49,8 @@
     }
   }
   &__body {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
+    align-items: center;
     padding: 30px;
     flex: 1 1 auto;
   }
@@ -56,16 +58,15 @@
     font-size: 20px;
     font-weight: bold;
     padding: 20px 0px;
-    color: rgb(105, 74, 59);
-    border-bottom: 0.1px solid rgb(105, 74, 59);
+    border-bottom: 0.1px solid $main-color;
   }
   &__content {
     flex: 1 1 auto;
-    border-bottom: 0.1px solid rgb(105, 74, 59);
+    border-bottom: 0.1px solid $main-color;
     margin-bottom: 20px;
   }
   &__number {
-    color: rgb(105, 74, 59);
+    text-align: center;
     font-size: 15px;
     font-weight: bold;
     padding-bottom: 10px;

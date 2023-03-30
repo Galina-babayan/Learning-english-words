@@ -1,9 +1,10 @@
+@import "../vars.scss";
+
 //---------карточки выбора в игре-----------------------------------------------------
 
 .cards {
   &__footer {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
     padding: 0px 15px;
     margin: 0px 20px;
@@ -12,19 +13,20 @@
   &__button {
     display: flex;
     justify-content: center;
+    a {
+      color: $main-color;
+    }
   }
   &__selection:hover {
-    box-shadow: 2px 2px 2px #425b69;
+    box-shadow: 2px 2px 2px $box-shadow;
     transition: all 0.2s ease 0s;
-    outline: solid 1px #2d404b;
+    outline: solid 1px $outline-color;
   }
 
   &__selection {
+    @include flex;
     border-radius: 5px;
     margin: 10px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 5px 36px;
     letter-spacing: 0.2px;
     padding: 2px 15px;
@@ -37,9 +39,8 @@
     min-width: 250px;
     text-transform: uppercase;
     text-align: center;
-    outline: 0.1px solid rgb(105, 74, 59);
-    background: rgba(193, 209, 182, 0.938);
-    color: rgb(105, 74, 59);
+    outline: 0.1px solid $outline-color;
+    background: $background-color;
   }
 
   &__link {
@@ -48,21 +49,17 @@
     border: 1px solid #82ac8d;
     padding: 5px 10px;
     margin-top: 10px;
-    // background-color: #e7cdac;
     border-radius: 7px;
 
     a {
       text-align: center;
-      color: rgb(105, 74, 59);
+      color: $main-color;
       text-transform: uppercase;
-      // box-shadow: 2px 2px 2px #425b69;
-      // transition: all 0.2s ease 0s;
-      // outline: solid 1px #2d404b;
     }
   }
   &__link:hover {
-    box-shadow: 2px 2px 2px #425b69;
+    box-shadow: 2px 2px 2px $box-shadow;
     transition: all 0.2s ease 0s;
-    outline: solid 1px #2d404b;
+    outline: solid 1px $outline-color;
   }
 }

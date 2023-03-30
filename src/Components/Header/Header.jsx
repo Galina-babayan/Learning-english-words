@@ -1,10 +1,10 @@
-import "./Header.css";
+import "./Header.scss";
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="" className="header__logo">
+        <a href="#" className="header__logo">
           {" "}
         </a>
         <div className="neader__menu menu">

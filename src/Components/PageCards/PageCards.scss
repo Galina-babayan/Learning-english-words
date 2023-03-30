@@ -1,26 +1,26 @@
+@import "../vars.scss";
+
 //--------cards---------------------------------
 
 .cards {
   font-weight: 400;
   font-size: 18px;
   line-height: 137%;
-  color: rgba(243, 243, 243, 1);
+  color: $main-color;
 
   &__body {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
     padding: 20px;
     border-radius: 20px;
   }
   &__game {
-    display: flex;
+    @include flex-column;
+    align-items: center;
   }
 
   &__item {
-    display: flex;
-    flex-direction: column;
-
+    @include flex-column;
     padding: 20px;
     border-radius: 20px;
     height: 100%;
@@ -29,7 +29,7 @@
     flex: 0 1 80%;
 
     a {
-      color: rgb(118, 63, 37);
+      color: $main-color;
     }
   }
 
@@ -47,10 +47,9 @@
   display: flex;
   justify-content: center;
   padding: 15px;
-
   font-weight: 700;
   font-size: 22px;
   line-height: 57px;
   text-transform: uppercase;
-  color: rgb(105, 74, 59);
+  
 }
