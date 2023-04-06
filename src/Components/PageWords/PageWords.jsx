@@ -3,7 +3,7 @@ import MainButton from "../MainButton/MainButton";
 import WordString from "../WordString/WordString";
 import StringAdd from "../StringAdd/StringAdd";
 
-import Json from "../Utils/Json";
+import Json from "../utils/Json";
 import { useState } from "react";
 
 let words = JSON.parse(Json);
@@ -22,43 +22,47 @@ export default function PageWords() {
   function delString() {
     setdelString(false);
   }
-  return (
-    <section className="words">
-      <div className="words__container container">
-        <div className="main__title">Библиотека слов</div>
 
-        <div className="words__body">
-          <div className="words__aside">
-            <MainButton funcClick={newWord} text="Добавить слово" />
-          </div>
-          {addWord && newString && <StringAdd delString={delString} />}
+  if (words) {
+    return (
+      <section className="words">
+        <div className="words__container container">
+          <div className="main__title">Библиотека слов</div>
 
-          <section className="words__top">
-            <div className="words-item__top">
-              <div className="words-item__subtitle">Слово:</div>
-              <div className="words-item__subtitle">транскрипция:</div>
-              <div className="words-item__subtitle">перевод:</div>
-              <div className="words-item__subtitle">Тема:</div>
+          <div className="words__body">
+            <div className="words__aside">
+              <MainButton funcClick={newWord} text="Добавить слово" />
             </div>
-          </section>
+            {addWord && newString && <StringAdd delString={delString} />}
 
-          <div className="words__wrapper">
-            <div className="words__list">
-              {words.map((word) => (
-                <WordString
-                  kay={word.id}
-                  en={word.en}
-                  tr={word.tr}
-                  ru={word.ru}
-                  subject={word.subject}
-                  meaning={word.meaning}
-                  redact={word.redact}
-                />
-              ))}
+            <section className="words__top">
+              <div className="words-item__top">
+                <div className="words-item__subtitle">Слово:</div>
+                <div className="words-item__subtitle">транскрипция:</div>
+                <div className="words-item__subtitle">перевод:</div>
+                <div className="words-item__subtitle">Тема:</div>
+              </div>
+            </section>
+
+            <div className="words__wrapper">
+              <div className="words__list">
+                {words.map((word) => (
+                  <WordString
+                    key={word.id}
+                    en={word.en}
+                    tr={word.tr}
+                    ru={word.ru}
+                    subject={word.subject}
+                    meaning={word.meaning}
+                    redact={word.redact}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
+  return "LOADING";
 }

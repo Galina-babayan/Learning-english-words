@@ -72,8 +72,6 @@ body._lock {
   background-position: center center;
 }
 .page-main__body {
-  display: flex;
-  flex-direction: column;
   justify-content: end;
   z-index: 2;
   position: relative;

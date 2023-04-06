@@ -14,17 +14,17 @@ export default function Header() {
           <nav className="menu__body">
             <ul className="menu__list">
               <li>
-                <a data-goto=".library" href="#" className="menu__link">
+                <a data-goto=".library" href="./" className="menu__link">
                   Темы
                 </a>
               </li>
               <li>
-                <a data-goto=".cards" href="#" className="menu__link">
+                <a data-goto=".cards" href="./" className="menu__link">
                   Карточки
                 </a>
               </li>
               <li>
-                <a data-goto=".words" href="#" className="menu__link">
+                <a data-goto=".words" href="./" className="menu__link">
                   Библиотека
                 </a>
               </li>

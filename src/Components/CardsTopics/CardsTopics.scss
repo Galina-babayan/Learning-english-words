@@ -9,6 +9,8 @@
     background-color: rgba(212, 212, 229, 1);
     margin-right: 20px;
     margin-bottom: 10px;
+    box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.638),
+      0 10px 10px -3px rgba(0, 0, 0, 0.04);
   }
   &__topics-title {
     align-self: center;

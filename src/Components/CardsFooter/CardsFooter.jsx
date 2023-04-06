@@ -5,12 +5,12 @@ export default function CardsFooter(props) {
   return (
     <div className="cards__footer">
       <div className="cards__button">
-        <a className="cards__selection" href="">
+        <a className="cards__selection" href="./">
           {textButton}
         </a>
       </div>
       <div className="cards__link">
-        <a href="#">{textLink}</a>
+        <a href="./">{textLink}</a>
       </div>
     </div>
   );

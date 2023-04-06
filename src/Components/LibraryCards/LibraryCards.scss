@@ -35,6 +35,9 @@
   border-radius: 20px;
   height: 100%;
   max-width: 410px;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.638),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  outline: 2px solid rgba(65, 82, 61, 0.84);
   a {
     color: $main-color;
   }

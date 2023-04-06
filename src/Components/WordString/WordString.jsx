@@ -10,12 +10,69 @@ export default function WordString(props) {
   let { en, tr, ru, subject, meaning } = props;
   const [isRedact, changeRedact] = useState(false);
 
+  const [word, setWord] = useState({ en, tr, ru, subject, meaning });
+
   function redact() {
     changeRedact(true);
   }
 
   function cancel() {
+    setWord({ en, tr, ru, subject, meaning });
     changeRedact(false);
+  }
+
+  function save() {
+    changeRedact(false);
+  }
+
+  function onChangeEn(event) {
+    setWord({
+      en: event.target.value,
+      tr: word.tr,
+      ru: word.ru,
+      subject: word.subject,
+      meaning: word.meaning,
+    });
+  }
+
+  function onChangeTr(event) {
+    setWord({
+      en: word.en,
+      tr: event.target.value,
+      ru: word.ru,
+      subject: word.subject,
+      meaning: word.meaning,
+    });
+  }
+
+  function onChangeRu(event) {
+    setWord({
+      en: word.en,
+      tr: word.tr,
+      ru: event.target.value,
+      subject: word.subject,
+      meaning: word.meaning,
+    });
+  }
+
+  function onChangeSubj(event) {
+    setWord({
+      en: word.en,
+      tr: word.tr,
+      ru: word.ru,
+      subject: event.target.value,
+      meaning: word.meaning,
+    });
+  }
+
+  function onChangeMean(event) {
+    setWord({
+      en: word.en,
+      tr: word.tr,
+      ru: word.ru,
+      subject: word.subject,
+      meaning: event.target.value,
+    });
   }
 
   return (
@@ -23,10 +80,10 @@ export default function WordString(props) {
       {!isRedact && (
         <summary>
           <div className="words-item__body">
-            <div className="words-item__title">{en}</div>
-            <div className="words-item__title">{tr}</div>
-            <div className="words-item__title">{ru}</div>
-            <div className="words-item__title">{subject}</div>
+            <div className="words-item__title">{word.en}</div>
+            <div className="words-item__title">{word.tr}</div>
+            <div className="words-item__title">{word.ru}</div>
+            <div className="words-item__title">{word.subject}</div>
             <div className="words__service">
               <div className="words__button">
                 <div onClick={redact} className="words__result">
@@ -47,36 +104,40 @@ export default function WordString(props) {
           <div className="words-item__body">
             <div className="words-item__new">
               <input
+                onChange={onChangeEn}
                 className="words-item__add"
                 type="text"
-                defaultValue={en}
+                defaultValue={word.en}
               />
             </div>
             <div className="words-item__new">
               <input
+                onChange={onChangeTr}
                 className="words-item__add"
                 type="text"
-                defaultValue={tr}
+                defaultValue={word.tr}
               />
             </div>
             <div className="words-item__new">
               <input
+                onChange={onChangeRu}
                 className="words-item__add"
                 type="text"
-                defaultValue={ru}
+                defaultValue={word.ru}
               />
             </div>
             <div className="words-item__new">
               <input
+                onChange={onChangeSubj}
                 className="words-item__add"
                 type="text"
-                defaultValue={subject}
+                defaultValue={word.subject}
               />
             </div>
 
             <div className="words__service">
               <div className="words__button-save">
-                <div className="words__result">
+                <div onClick={save} className="words__result">
                   <img src={iconSave} alt="" />
                 </div>
               </div>
@@ -90,11 +151,12 @@ export default function WordString(props) {
           </div>
         </summary>
       )}
-      {!isRedact && <p>{meaning}</p>}
+      {!isRedact && <p>{word.meaning}</p>}
       {isRedact && (
         <textarea
+          onChange={onChangeMean}
           className="words-item__meaning"
-          placeholder={meaning}
+          placeholder={word.meaning}
           name=""
           id=""
           cols="60"

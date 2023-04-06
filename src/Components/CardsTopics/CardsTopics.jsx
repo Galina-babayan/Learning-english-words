@@ -1,39 +1,51 @@
 import "./CardsTopics.scss";
 
-export default function CardsTopics() {
+export default function CardsTopics(props) {
+  // let {
+  //   onClickWerbs,
+  //   onClickProfessions,
+  //   onClickKitchen,
+  //   onClickTransport,
+  //   onClickClothes,
+  //   onClickAnimals,
+  //   onClickPlants,
+  //   onClickFeelings,
+  //   onClickColors,
+  //   onClickSea,
+  // } = props;
   return (
     <div className="cards__topics">
       <p className="cards__topics-title">Выберите тему</p>
       <ul className="cards__topics-list">
         <li className="cards__topics-subject">
-          <a href="#">Глаголы</a>
+          <div onClick={props.onClickWerbs}>Глаголы</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Профессии</a>
+          <div onClick={props.onClickProfessions}>Профессии</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Кухня</a>
+          <div onClick={props.onClickKitchen}>Кухня</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Транспорт</a>
+          <div onClick={props.onClickTransport}>Транспорт</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Одежда</a>
+          <div onClick={props.onClickClothes}>Одежда</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Животные</a>
+          <div onClick={props.onClickAnimals}>Животные</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Съедобные растения</a>
+          <div onClick={props.onClickPlants}>Съедобные растения</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Чувства</a>
+          <div onClick={props.onClickFeelings}>Чувства</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Цвета</a>
+          <div onClick={props.onClickColors}>Цвета</div>
         </li>
         <li className="cards__topics-subject">
-          <a href="#">Море</a>
+          <div onClick={props.onClickSea}>Море</div>
         </li>
       </ul>
     </div>

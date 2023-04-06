@@ -6,7 +6,7 @@ export default function LibraryCards(props) {
   let { topic, number, color, url } = props;
   return (
     <div className="library__column">
-      <article className={cN([`library-item ` + `${color}`])}>
+      <article className={cN([`library-item ${color}`])}>
         <div className="library-item__image">
           <img src={url} alt="" />
         </div>
