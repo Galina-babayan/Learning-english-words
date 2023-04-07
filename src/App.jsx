@@ -12,6 +12,7 @@ function App() {
       <Header />
       <main className="page">
         <PageMain />
+
         <PageWords />
         <PageCards />
         <PageLibrary />

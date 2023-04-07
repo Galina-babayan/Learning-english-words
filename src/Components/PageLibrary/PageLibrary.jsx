@@ -21,41 +21,25 @@ let words = JSON.parse(Json);
 
 let werbs = words.filter((item) => item.subject === `глаголы`);
 
-let professions = words.filter(function (item) {
-  return item.subject === `профессия`;
-});
+let professions = words.filter((item) => item.subject === `профессия`);
 
-let kitchen = words.filter(function (item) {
-  return item.subject === `кухонные принадлежности`;
-});
+let kitchen = words.filter(
+  (item) => item.subject === `кухонные принадлежности`
+);
 
-let transport = words.filter(function (item) {
-  return item.subject === `транспорт`;
-});
+let transport = words.filter((item) => item.subject === `транспорт`);
 
-let clothes = words.filter(function (item) {
-  return item.subject === `одежда`;
-});
+let clothes = words.filter((item) => item.subject === `одежда`);
 
-let animals = words.filter(function (item) {
-  return item.subject === `животные`;
-});
+let animals = words.filter((item) => item.subject === `животные`);
 
-let plants = words.filter(function (item) {
-  return item.subject === `съедобные растения`;
-});
+let plants = words.filter((item) => item.subject === `съедобные растения`);
 
-let feelings = words.filter(function (item) {
-  return item.subject === `чувства`;
-});
+let feelings = words.filter((item) => item.subject === `чувства`);
 
-let colors = words.filter(function (item) {
-  return item.subject === `цвета`;
-});
+let colors = words.filter((item) => item.subject === `цвета`);
 
-let sea = words.filter(function (item) {
-  return item.subject === `морская тема`;
-});
+let sea = words.filter((item) => item.subject === `морская тема`);
 
 export default function PageLibrary() {
   if (words) {

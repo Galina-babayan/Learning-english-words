@@ -12,41 +12,25 @@ let words = JSON.parse(Json);
 
 let werbs = words.filter((item) => item.subject === `глаголы`);
 
-let professions = words.filter(function (item) {
-  return item.subject === `профессия`;
-});
+let professions = words.filter((item) => item.subject === `профессия`);
 
-let kitchen = words.filter(function (item) {
-  return item.subject === `кухонные принадлежности`;
-});
+let kitchen = words.filter(
+  (item) => item.subject === `кухонные принадлежности`
+);
 
-let transport = words.filter(function (item) {
-  return item.subject === `транспорт`;
-});
+let transport = words.filter((item) => item.subject === `транспорт`);
 
-let clothes = words.filter(function (item) {
-  return item.subject === `одежда`;
-});
+let clothes = words.filter((item) => item.subject === `одежда`);
 
-let animals = words.filter(function (item) {
-  return item.subject === `животные`;
-});
+let animals = words.filter((item) => item.subject === `животные`);
 
-let plants = words.filter(function (item) {
-  return item.subject === `съедобные растения`;
-});
+let plants = words.filter((item) => item.subject === `съедобные растения`);
 
-let feelings = words.filter(function (item) {
-  return item.subject === `чувства`;
-});
+let feelings = words.filter((item) => item.subject === `чувства`);
 
-let colors = words.filter(function (item) {
-  return item.subject === `цвета`;
-});
+let colors = words.filter((item) => item.subject === `цвета`);
 
-let sea = words.filter(function (item) {
-  return item.subject === `морская тема`;
-});
+let sea = words.filter((item) => item.subject === `морская тема`);
 
 export default function PageCards() {
   const [cardIndex, setCardIndex] = useState(0);
@@ -63,52 +47,52 @@ export default function PageCards() {
   }
 
   function onClickWerbs() {
-    setCardTopic((cardTopic = werbs));
+    setCardTopic(werbs);
     setIsStart(true);
   }
 
   function onClickProfessions() {
-    setCardTopic((cardTopic = professions));
+    setCardTopic(professions);
     setIsStart(true);
   }
 
   function onClickKitchen() {
-    setCardTopic((cardTopic = kitchen));
+    setCardTopic(kitchen);
     setIsStart(true);
   }
 
   function onClickTransport() {
-    setCardTopic((cardTopic = transport));
+    setCardTopic(transport);
     setIsStart(true);
   }
 
   function onClickClothes() {
-    setCardTopic((cardTopic = clothes));
+    setCardTopic(clothes);
     setIsStart(true);
   }
 
   function onClickAnimals() {
-    setCardTopic((cardTopic = animals));
+    setCardTopic(animals);
     setIsStart(true);
   }
 
   function onClickPlants() {
-    setCardTopic((cardTopic = plants));
+    setCardTopic(plants);
     setIsStart(true);
   }
 
   function onClickFeelings() {
-    setCardTopic((cardTopic = feelings));
+    setCardTopic(feelings);
     setIsStart(true);
   }
 
   function onClickColors() {
-    setCardTopic((cardTopic = colors));
+    setCardTopic(colors);
     setIsStart(true);
   }
 
   function onClickSea() {
-    setCardTopic((cardTopic = sea));
+    setCardTopic(sea);
     setIsStart(true);
   }
 

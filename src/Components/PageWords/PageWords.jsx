@@ -17,6 +17,7 @@ export default function PageWords() {
 
   function newWord() {
     setAddWord(!addWord);
+    setdelString(true);
   }
 
   function delString() {
