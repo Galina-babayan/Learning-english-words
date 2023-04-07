@@ -3,7 +3,7 @@ import MainButton from "../MainButton/MainButton";
 import WordString from "../WordString/WordString";
 import StringAdd from "../StringAdd/StringAdd";
 
-import Json from "../utils/Json";
+import Json from "../utils/Json.js";
 import { useState } from "react";
 
 let words = JSON.parse(Json);

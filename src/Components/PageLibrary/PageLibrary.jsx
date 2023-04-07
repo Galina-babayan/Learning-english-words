@@ -15,7 +15,7 @@ import seaImg from "../../images/seaImg.jpg";
 import transportImg from "../../images/transportImg.jpg";
 import clothesImg from "../../images/clothesImg.jpg";
 
-import Json from "../utils/Json";
+import Json from "../utils/Json.js";
 
 let words = JSON.parse(Json);
 
