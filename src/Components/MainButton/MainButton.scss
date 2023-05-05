@@ -6,6 +6,7 @@
 }
 .main__button {
   @include flex;
+  @include button-reset;
   border-radius: 37px;
   margin: 10px 0px;
   padding: 5px 36px;
@@ -30,4 +31,38 @@
   box-shadow: 2px 2px 2px $box-shadow;
   transition: all 0.4s ease 0s;
   outline: solid 1px rgb(69, 56, 122);
+}
+
+// .main__button-hover {
+//   @include flex;
+//   @include button-reset;
+//   border-radius: 37px;
+//   margin: 10px 0px;
+//   padding: 5px 36px;
+//   letter-spacing: 0.2px;
+//   padding: 2px 15px;
+//   height: 40px;
+//   text-decoration: none;
+//   letter-spacing: 0.2px;
+//   font-weight: bold;
+//   font-size: 12px;
+//   line-height: 105%;
+//   text-transform: uppercase;
+//   text-align: center;
+
+//   border: 0.1px solid $color-hover;
+//   max-width: 100px;
+//   cursor: pointer;
+
+//   background: rgba(148, 118, 166, 0.829);
+//   color: rgba(229, 220, 210, 1);
+//   box-shadow: 2px 2px 2px $box-shadow;
+//   transition: all 0.4s ease 0s;
+//   outline: solid 1px rgb(69, 56, 122);
+// }
+.main__button:focus {
+  // box-shadow: 0px 10px 20px 5px rgba(157, 157, 133, 1);
+  box-shadow: 0px 1px 20px 1px rgb(41, 157, 124);
+  transform: translateY(-2px);
+  border: 0.1px solid $color-hover;
 }

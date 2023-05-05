@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 import "./Header.scss";
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="#" className="header__logo">
+        <Link to="/" className="header__logo">
           {" "}
-        </a>
+        </Link>
         <div className="neader__menu menu">
           <div className="menu__icon">
             <span></span>
@@ -14,20 +16,25 @@ export default function Header() {
           <nav className="menu__body">
             <ul className="menu__list">
               <li>
-                <a data-goto=".library" href="./" className="menu__link">
-                  Темы
-                </a>
+                <Link to="/PageWords" className="menu__link">
+                  Таблица слов
+                </Link>
               </li>
               <li>
-                <a data-goto=".cards" href="./" className="menu__link">
+                <Link to="/PageCards" className="menu__link">
                   Карточки
-                </a>
+                </Link>
               </li>
               <li>
-                <a data-goto=".words" href="./" className="menu__link">
-                  Библиотека
-                </a>
+                <Link to="/PagePlay" className="menu__link">
+                  Угадай пару
+                </Link>
               </li>
+              {/* <li>
+                <Link to="/PageLibrary" className="menu__link">
+                  Слова по темам
+                </Link>
+              </li> */}
             </ul>
           </nav>
         </div>

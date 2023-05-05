@@ -1,9 +1,9 @@
 import "./PageWords.scss";
-import MainButton from "../MainButton/MainButton";
-import WordString from "../WordString/WordString";
-import StringAdd from "../StringAdd/StringAdd";
+import MainButton from "../../Components/MainButton/MainButton";
+import WordString from "../../Components/WordString/WordString";
+import StringAdd from "../../Components/StringAdd/StringAdd";
 
-import Json from "../utils/Json.js";
+import Json from "../../Components/utils/Json.js";
 import { useState } from "react";
 
 let words = JSON.parse(Json);

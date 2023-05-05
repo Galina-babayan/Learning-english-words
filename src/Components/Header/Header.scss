@@ -3,12 +3,12 @@
 //-------header----------------------------------
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
-  //background-color: rgb(168, 84, 84);
+  background-color: rgba(139, 168, 84, 0.69);
   &__container {
     max-width: 1200px;
     margin: 0px auto;

@@ -1,18 +1,6 @@
 import "./CardsTopics.scss";
 
 export default function CardsTopics(props) {
-  // let {
-  //   onClickWerbs,
-  //   onClickProfessions,
-  //   onClickKitchen,
-  //   onClickTransport,
-  //   onClickClothes,
-  //   onClickAnimals,
-  //   onClickPlants,
-  //   onClickFeelings,
-  //   onClickColors,
-  //   onClickSea,
-  // } = props;
   return (
     <div className="cards__topics">
       <p className="cards__topics-title">Выберите тему</p>

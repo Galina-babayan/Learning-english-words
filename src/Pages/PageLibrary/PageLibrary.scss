@@ -1,10 +1,11 @@
-@import "../vars.scss";
+@import "../../Components/vars.scss";
 
 //---------------------------------------------library-----------------------------------
 .library {
   font-weight: 400;
   font-size: 18px;
   line-height: 137%;
+  margin-top: 60px;
 
   &__top {
     display: flex;

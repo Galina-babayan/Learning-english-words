@@ -1,0 +1,177 @@
+@import "../../Components/vars.scss";
+
+//--------cards---------------------------------
+
+.cards {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 137%;
+  color: $main-color;
+  margin-top: 50px;
+
+  &__body {
+    @include flex-column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  &__game {
+    @include flex-column;
+    align-items: center;
+  }
+
+  &__wrapper {
+    max-height: 70vh;
+    overflow: auto;
+    border-radius: 7px;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.638),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  &__play {
+    max-width: 100%;
+
+    display: grid;
+    justify-content: center;
+    gap: 15px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 10px 20px 10px 10px;
+  }
+
+  &__item {
+    @include flex-column;
+    padding: 20px;
+    border-radius: 20px;
+    height: 100%;
+    margin-bottom: 50px;
+    width: 100%;
+    flex: 0 1 80%;
+
+    a {
+      color: $main-color;
+    }
+  }
+
+  &__item-top {
+    @include flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: $background-second-color;
+    width: 250px;
+    min-height: 200px;
+    outline: 2px solid rgba(65, 82, 61, 0.84);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.638),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  &__item-play-change {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    width: 110px;
+    height: 140px;
+  }
+
+  &__item-body {
+    border-radius: 20px;
+  }
+
+  &__item-play-front,
+  &__item-play-back {
+    @include flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: $background-second-color;
+    backface-visibility: hidden;
+    font-size: 14px;
+    outline: 2px solid rgba(65, 82, 61, 0.84);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.638),
+      0 10px 10px -5px rgba(26, 25, 27, 0.04);
+  }
+
+  &__item-play-back:hover,
+  &__item-play-front:hover {
+    box-shadow: 5px 5px 5px $box-shadow;
+    transition: all 0.3s ease 0s;
+    outline: solid 2px $outline-color;
+  }
+
+  &__item-play-front {
+    transform: rotateY(180deg);
+  }
+
+  &__item-play-back {
+    transition: 0.3s ease all;
+  }
+
+  &__item-play-text {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex: 1 1 auto;
+    padding-top: 10px;
+    font-size: 10px;
+    line-height: 110%;
+    font-weight: bold;
+    padding: 10px 0px;
+  }
+
+  &__item-play-en {
+    font-size: 10px;
+    padding: 10px 0px;
+    color: $outline-color;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &__item-play-tr {
+    padding: 10px 0px;
+  }
+
+  &__item-play-ru {
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 14px;
+    color: rgba(103, 32, 99, 0.562);
+  }
+
+  &__row {
+    display: flex;
+    margin: 0 auto;
+  }
+}
+
+.main__title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 57px;
+  text-transform: uppercase;
+}
+
+.cards__item-play-change.flipped .inner {
+  transform: rotateY(180deg);
+}
+.opened {
+  background-color: $background-button-color;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.6s cubic-bezier(0.38, 0.02, 0.09, 1.66) all;
+}

@@ -68,6 +68,15 @@ $background-button-color: rgba(181, 181, 218, 0.851);
 $box-shadow: #425b69;
 $color-light: rgba(243, 243, 243, 1);
 
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 // @mixin h2 {
 //   font-weight: 700;
 //   font-size: 40px;

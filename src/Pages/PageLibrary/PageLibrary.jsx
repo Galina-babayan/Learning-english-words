@@ -1,7 +1,7 @@
 import "./PageLibrary.scss";
-import "../LibraryCards/LibraryCards.scss";
+import "../../Components/LibraryCards/LibraryCards.scss";
 
-import LibraryCards from "../LibraryCards/LibraryCards";
+import LibraryCards from "../../Components/LibraryCards/LibraryCards";
 //import PageCards from "../PageCards/PageCards";
 
 import werbsImg from "../../images/werbsImg.jpeg";
@@ -15,7 +15,7 @@ import seaImg from "../../images/seaImg.jpg";
 import transportImg from "../../images/transportImg.jpg";
 import clothesImg from "../../images/clothesImg.jpg";
 
-import Json from "../utils/Json.js";
+import Json from "../../Components/utils/Json.js";
 
 let words = JSON.parse(Json);
 

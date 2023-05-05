@@ -197,7 +197,7 @@ let Json = `[
       "tr": "[ 'dentist ]",
       "subject": "профессия",
       "meaning":
-        "one who is skilled in and licensed to practice the prevention, diagnosis, and treatment of diseases, injuries, and malformations of the teeth, jaws, and mouth and who makes and inserts false teeth"
+        "one who is skilled in and licensed to practice the prevention, diagnosis, and treatment of diseases, injuries, and malformations of the teeth"
     },
     {
       "id": 24,
@@ -827,7 +827,7 @@ let Json = `[
       "tr": "[ 'strɔ:bəriz ]",
       "subject": "съедобные растения",
       "meaning":
-        "the juicy edible usually red fruit of any of several low-growing temperate herbs (genus Fragaria) of the rose family that is technically an enlarged pulpy receptacle bearing numerous achenes on its surface"
+        "the juicy edible usually red fruit of any of several low-growing temperate herbs (genus Fragaria) of the rose family"
     },
     {
       "id": 97,
@@ -860,7 +860,7 @@ let Json = `[
       "tr": "[ greɪps ]",
       "subject": "съедобные растения",
       "meaning":
-        "a smooth-skinned juicy light green or deep red to purplish black berry eaten dried or fresh as a fruit or fermented to produce wine"
+        "a smooth-skinned juicy light green or deep red to purplish black berry eaten dried or fresh"
     },
     {
       "id": 101,

@@ -1,9 +1,10 @@
-@import "../vars.scss";
+@import "../../Components/vars.scss";
 
 //-----words-------------------------------------
 .words {
   padding: 20px;
   color: $main-color;
+  margin-top: 40px;
 
   &__title {
     text-align: center;
