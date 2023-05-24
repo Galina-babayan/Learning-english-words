@@ -37,8 +37,6 @@ export default function PageCards() {
   let [cardTopic, setCardTopic] = useState(null);
   const [isStart, setIsStart] = useState(false);
   const [isCheckedWords, setIsCheckedWords] = useState(0);
-  //const [isSelected, setIsSelected] = useState(false);
-  //const a = useRef(null);
 
   function onCheckWordClicked() {
     setIsCheckedWords(isCheckedWords + 1);
@@ -46,17 +44,7 @@ export default function PageCards() {
 
   function nextCard() {
     setCardIndex(cardIndex + 1);
-
-    // setIsSelected(true);
-    // console.log(a);
-    // a.current.focus();
   }
-
-  // useEffect(() => {
-  //   setIsSelected(true);
-  //   // console.log(a);
-  //   // a.current.style.color = "red";
-  // }, [cardIndex]);
 
   function startAgain() {
     setIsStart(false);
@@ -147,8 +135,6 @@ export default function PageCards() {
                         {...cardTopic[cardIndex]}
                         nextCard={nextCard}
                         onCheckWordClicked={onCheckWordClicked}
-                        // a={a}
-                        // b={isSelected}
                       />
                       {cardIndex + 1} / {cardTopic.length}
                     </>

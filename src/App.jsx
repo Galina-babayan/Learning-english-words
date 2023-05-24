@@ -21,7 +21,7 @@ function App() {
 
             <Route path="/PageWords" element={<PageWords />} />
 
-            <Route path="/PageCards" element={<PageCards />} />
+            <Route path="/game" element={<PageCards />} />
 
             <Route path="/PagePlay" element={<PagePlay />} />
 

@@ -7,9 +7,9 @@ import { useEffect, useState, useRef } from "react";
 export default function WordCard(props) {
   let { meaning, en, tr, ru, id, onCheckWordClicked } = props;
   const [isChecked, changeChecked] = useState(false);
-  const a = useRef(null);
+  const focusButton = useRef(null);
 
-  function onClick(e) {
+  function onClick() {
     changeChecked(true);
     onCheckWordClicked();
   }
@@ -23,7 +23,7 @@ export default function WordCard(props) {
   }
 
   function next() {
-    a.current.focus();
+    focusButton.current.focus();
     props.nextCard();
   }
 
@@ -33,7 +33,11 @@ export default function WordCard(props) {
         <div className="cards__item-front">
           <p className="cards__item-title">Question</p>
           <div className="cards__item-text">{meaning}</div>
-          <MainButton funcClick={onClick} text="Проверить" a={a} />
+          <MainButton
+            funcClick={onClick}
+            text="Проверить"
+            focusButton={focusButton}
+          />
         </div>
       )}
       {isChecked && (
@@ -43,7 +47,11 @@ export default function WordCard(props) {
             <div className="cards__item-tr">{tr}</div>
             <div className="cards__item-ru">{ru}</div>
           </div>
-          <MainButton funcClick={getBack} text="Обратно" a={a} />
+          <MainButton
+            funcClick={getBack}
+            text="Обратно"
+            focusButton={focusButton}
+          />
         </div>
       )}
 

@@ -21,7 +21,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="/PageCards" className="menu__link">
+                <Link to="/game" className="menu__link">
                   Карточки
                 </Link>
               </li>
