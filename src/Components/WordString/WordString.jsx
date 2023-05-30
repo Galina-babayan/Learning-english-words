@@ -9,15 +9,21 @@ import Input from "../Input/Input";
 import { useState, useEffect } from "react";
 
 export default function WordString(props) {
-  let { en, tr, ru, subject, meaning } = props;
-  const [word, setWord] = useState({ en, tr, ru, subject, meaning });
+  let { english, transcription, russian, tags, meaning } = props;
+  const [word, setWord] = useState({
+    english,
+    transcription,
+    russian,
+    tags,
+    meaning,
+  });
   const [isRedact, changeRedact] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
 
-  const [valueEn, setValueEn] = useState(word.en);
-  const [valueRu, setValueRu] = useState(word.ru);
-  const [valueTr, setValueTr] = useState(word.tr);
-  const [valueSubject, setValueSubject] = useState(word.subject);
+  const [valueEn, setValueEn] = useState(word.english);
+  const [valueRu, setValueRu] = useState(word.russian);
+  const [valueTr, setValueTr] = useState(word.transcription);
+  const [valueSubject, setValueSubject] = useState(word.tags);
   const [valueMeaning, setValueMeaning] = useState(word.meaning);
 
   const handleEn = (event) => {
@@ -53,7 +59,7 @@ export default function WordString(props) {
   }
 
   function cancel() {
-    setWord({ en, tr, ru, subject, meaning });
+    setWord({ english, transcription, russian, tags, meaning });
     changeRedact(false);
   }
 
@@ -77,10 +83,10 @@ export default function WordString(props) {
     const form = new FormData(event.target);
 
     const redactedWord = {
-      en: form.get("en"),
-      tr: form.get("tr"),
-      ru: form.get("ru"),
-      subject: form.get("subject"),
+      english: form.get("english"),
+      transcription: form.get("transcription"),
+      russian: form.get("russian"),
+      tags: form.get("tags"),
       meaning: valueMeaning,
     };
     console.log(redactedWord);
@@ -103,10 +109,10 @@ export default function WordString(props) {
         {!isRedact && (
           <summary>
             <div className="words-item__body">
-              <div className="words-item__title">{word.en}</div>
-              <div className="words-item__title">{word.tr}</div>
-              <div className="words-item__title">{word.ru}</div>
-              <div className="words-item__title">{word.subject}</div>
+              <div className="words-item__title">{word.english}</div>
+              <div className="words-item__title">{word.transcription}</div>
+              <div className="words-item__title">{word.russian}</div>
+              <div className="words-item__title">{word.tags}</div>
               <div className="words__service">
                 <div className="words__button">
                   <button onClick={redact} className="words__result">
@@ -125,12 +131,27 @@ export default function WordString(props) {
         {isRedact && (
           <summary>
             <form onSubmit={save} className="words-item__body">
-              <Input id="1" name="en" valueWord={valueEn} onChange={handleEn} />
-              <Input id="2" name="tr" valueWord={valueTr} onChange={handleTr} />
-              <Input id="3" name="ru" valueWord={valueRu} onChange={handleRu} />
+              <Input
+                id="1"
+                name="english"
+                valueWord={valueEn}
+                onChange={handleEn}
+              />
+              <Input
+                id="2"
+                name="transcription"
+                valueWord={valueTr}
+                onChange={handleTr}
+              />
+              <Input
+                id="3"
+                name="russian"
+                valueWord={valueRu}
+                onChange={handleRu}
+              />
               <Input
                 id="4"
-                name="subject"
+                name="tags"
                 valueWord={valueSubject}
                 onChange={handleSubject}
               />

@@ -1,5 +1,4 @@
 import "./PageMain.scss";
-//import main from "../../images/main.jpg";
 
 export default function PageMain() {
   return (
@@ -17,9 +16,6 @@ export default function PageMain() {
           </div>
         </div>
       </div>
-      {/* <div className="page-main__image ibg">
-        <img src={main} alt="" />
-      </div> */}
     </section>
   );
 }

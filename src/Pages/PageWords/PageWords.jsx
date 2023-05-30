@@ -15,14 +15,61 @@ export default function PageWords() {
   const [addWord, setAddWord] = useState(false);
   const [newString, setdelString] = useState(true);
 
+  // const [newEn, setNewEn] = useState("");
+  // const [newRu, setNewRu] = useState("");
+  // const [newTr, setNewTr] = useState("");
+  // const [newSubject, setNewSubject] = useState("");
+  // const [newMeaning, setNewMeaning] = useState("");
+
   function newWord() {
-    setAddWord(!addWord);
+    setAddWord(true);
     setdelString(true);
   }
 
-  function delString() {
+  // let redactedWord;
+  // redactedWord = {
+  //   en: newEn,
+  //   tr: newTr,
+  //   ru: newRu,
+  //   subject: newSubject,
+  //   // meaning: newMeaning,
+  // };
+
+  // useEffect(() => {
+  //   getNewWord();
+  // }, [newEn, newTr, newRu, newSubject]);
+
+  function delHandleString() {
+    setAddWord(false);
     setdelString(false);
   }
+
+  // function getNewWord(event) {
+  //   const form = new FormData(event.target);
+
+  //   setNewEn(form.get("english"));
+
+  //   setNewRu(form.get("russian"));
+  //   setNewTr(form.get("transcription"));
+  //   setNewSubject(form.get("tags"));
+
+  //   // const redactedWord = {
+  //   //   en: newEn,
+  //   //   tr: newTr,
+  //   //   ru: newRu,
+  //   //   subject: newSubject,
+  //   //   // meaning: newMeaning,
+  //   // };
+  //   // console.log(redactedWord);
+  // }
+  // function finishAdd() {
+  //   setAddWord(false);
+  //   setdelString(false);
+  // }
+
+  // function onSaveEn(newEn) {
+  //   setNewEn(newEn);
+  // }
 
   if (words) {
     return (
@@ -34,7 +81,7 @@ export default function PageWords() {
             <div className="words__aside">
               <MainButton funcClick={newWord} text="Добавить слово" />
             </div>
-            {addWord && newString && <StringAdd delString={delString} />}
+            {addWord && newString && <StringAdd delString={delHandleString} />}
 
             <section className="words__top">
               <div className="words-item__top">
@@ -50,10 +97,10 @@ export default function PageWords() {
                 {words.map((word) => (
                   <WordString
                     key={word.id}
-                    en={word.en}
-                    tr={word.tr}
-                    ru={word.ru}
-                    subject={word.subject}
+                    english={word.english}
+                    transcription={word.transcription}
+                    russian={word.russian}
+                    tags={word.tags}
                     meaning={word.meaning}
                     redact={word.redact}
                   />

@@ -116,6 +116,9 @@
     max-width: 200px;
     font-size: 16px;
   }
+  // &__add:focus::placeholder {
+  //   color: transparent;
+  // }
   &__add-error {
     outline: 1px solid red;
   }
@@ -150,6 +153,7 @@
   &__new {
     margin-right: 20px;
   }
+
   &__new:last-child {
     margin-right: 0px;
   }

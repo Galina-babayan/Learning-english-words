@@ -30,11 +30,6 @@ export default function Header() {
                   Угадай пару
                 </Link>
               </li>
-              {/* <li>
-                <Link to="/PageLibrary" className="menu__link">
-                  Слова по темам
-                </Link>
-              </li> */}
             </ul>
           </nav>
         </div>

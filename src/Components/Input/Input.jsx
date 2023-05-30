@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Input(props) {
   let { valueWord, onChange, name, onBlur, pattern } = props;
 
-  const [valueInput, setValueInput] = useState(valueWord);
+  const [valueInput, setValueInput] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [error, setError] = useState("");
 
@@ -12,7 +12,7 @@ export default function Input(props) {
     setValueInput(event.target.value);
 
     switch (event.target.name) {
-      case "en":
+      case "english":
         onChange(event);
         if (event.target.value === "") {
           setIsValid(false);
@@ -26,7 +26,7 @@ export default function Input(props) {
         }
 
         break;
-      case "ru":
+      case "russian":
         onChange(event);
         if (event.target.value === "") {
           setIsValid(false);
@@ -39,20 +39,22 @@ export default function Input(props) {
           setError("");
         }
         break;
-      case "tr":
+      case "transcription":
         onChange(event);
         if (event.target.value === "") {
           setIsValid(false);
           setError("Заполните поле!");
-        } else if (!event.target.value.match("^[a-zA-Z0-9[]]+$")) {
-          setIsValid(false);
-          setError("Только кириллица!");
-        } else {
+        }
+        // else if (!event.target.value.match("^[a-zA-Z0-9[]]+$")) {
+        //   setIsValid(false);
+        //   setError("Только латиница!");
+        // }
+        else {
           setIsValid(true);
           setError("");
         }
         break;
-      case "subject":
+      case "tags":
         onChange(event);
         if (event.target.value === "") {
           setIsValid(false);

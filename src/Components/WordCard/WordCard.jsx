@@ -5,7 +5,7 @@ import iconRight from "../../images/iconRight.png";
 import { useEffect, useState, useRef } from "react";
 
 export default function WordCard(props) {
-  let { meaning, en, tr, ru, id, onCheckWordClicked } = props;
+  let { english, transcription, russian, id, onCheckWordClicked, tags } = props;
   const [isChecked, changeChecked] = useState(false);
   const focusButton = useRef(null);
 
@@ -32,7 +32,7 @@ export default function WordCard(props) {
       {!isChecked && (
         <div className="cards__item-front">
           <p className="cards__item-title">Question</p>
-          <div className="cards__item-text">{meaning}</div>
+          <div className="cards__item-text">{english}</div>
           <MainButton
             funcClick={onClick}
             text="Проверить"
@@ -42,10 +42,10 @@ export default function WordCard(props) {
       )}
       {isChecked && (
         <div className="cards__item-back">
-          <div className="cards__item-en">{en}</div>
+          <div className="cards__item-en">{russian}</div>
           <div className="cards__item-wrapper">
-            <div className="cards__item-tr">{tr}</div>
-            <div className="cards__item-ru">{ru}</div>
+            <div className="cards__item-tr">{transcription}</div>
+            <div className="cards__item-ru">{tags}</div>
           </div>
           <MainButton
             funcClick={getBack}

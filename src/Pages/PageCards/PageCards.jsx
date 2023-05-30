@@ -2,7 +2,7 @@ import "./PageCards.scss";
 
 import CardsTopics from "../../Components/CardsTopics/CardsTopics";
 import WordCard from "../../Components/WordCard/WordCard";
-//import CardsFooter from "../CardsFooter/CardsFooter";
+
 import MainButton from "../../Components/MainButton/MainButton";
 
 import Json from "../../Components/utils/Json.js";
@@ -10,27 +10,25 @@ import { useState } from "react";
 
 let words = JSON.parse(Json);
 
-let werbs = words.filter((item) => item.subject === `глаголы`);
+let werbs = words.filter((item) => item.tags === `глаголы`);
 
-let professions = words.filter((item) => item.subject === `профессия`);
+let professions = words.filter((item) => item.tags === `профессия`);
 
-let kitchen = words.filter(
-  (item) => item.subject === `кухонные принадлежности`
-);
+let kitchen = words.filter((item) => item.tags === `кухонные принадлежности`);
 
-let transport = words.filter((item) => item.subject === `транспорт`);
+let transport = words.filter((item) => item.tags === `транспорт`);
 
-let clothes = words.filter((item) => item.subject === `одежда`);
+let clothes = words.filter((item) => item.tags === `одежда`);
 
-let animals = words.filter((item) => item.subject === `животные`);
+let animals = words.filter((item) => item.tags === `животные`);
 
-let plants = words.filter((item) => item.subject === `съедобные растения`);
+let plants = words.filter((item) => item.tags === `съедобные растения`);
 
-let feelings = words.filter((item) => item.subject === `чувства`);
+let feelings = words.filter((item) => item.tags === `чувства`);
 
-let colors = words.filter((item) => item.subject === `цвета`);
+let colors = words.filter((item) => item.tags === `цвета`);
 
-let sea = words.filter((item) => item.subject === `морская тема`);
+let sea = words.filter((item) => item.tags === `морская тема`);
 
 export default function PageCards() {
   const [cardIndex, setCardIndex] = useState(0);
@@ -165,11 +163,6 @@ export default function PageCards() {
                 </div>
               </div>
             </div>
-            {/* <div className="cards__row">
-            <CardsFooter textButton="Не знаю" textLink="Попробовать еще" />
-            <CardsFooter textButton="Карточки" textLink="Перемешать" />
-            <CardsFooter textButton="Знаю" textLink="Начать заново" />
-          </div> */}
           </div>
         </div>
       </section>

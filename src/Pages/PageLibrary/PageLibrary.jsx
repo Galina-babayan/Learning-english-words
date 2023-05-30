@@ -2,7 +2,6 @@ import "./PageLibrary.scss";
 import "../../Components/LibraryCards/LibraryCards.scss";
 
 import LibraryCards from "../../Components/LibraryCards/LibraryCards";
-//import PageCards from "../PageCards/PageCards";
 
 import werbsImg from "../../images/werbsImg.jpeg";
 import professionsImg from "../../images/professionsImg.jpg";
@@ -19,27 +18,25 @@ import Json from "../../Components/utils/Json.js";
 
 let words = JSON.parse(Json);
 
-let werbs = words.filter((item) => item.subject === `глаголы`);
+let werbs = words.filter((item) => item.tags === `глаголы`);
 
-let professions = words.filter((item) => item.subject === `профессия`);
+let professions = words.filter((item) => item.tags === `профессия`);
 
-let kitchen = words.filter(
-  (item) => item.subject === `кухонные принадлежности`
-);
+let kitchen = words.filter((item) => item.tags === `кухонные принадлежности`);
 
-let transport = words.filter((item) => item.subject === `транспорт`);
+let transport = words.filter((item) => item.tags === `транспорт`);
 
-let clothes = words.filter((item) => item.subject === `одежда`);
+let clothes = words.filter((item) => item.tags === `одежда`);
 
-let animals = words.filter((item) => item.subject === `животные`);
+let animals = words.filter((item) => item.tags === `животные`);
 
-let plants = words.filter((item) => item.subject === `съедобные растения`);
+let plants = words.filter((item) => item.tags === `съедобные растения`);
 
-let feelings = words.filter((item) => item.subject === `чувства`);
+let feelings = words.filter((item) => item.tags === `чувства`);
 
-let colors = words.filter((item) => item.subject === `цвета`);
+let colors = words.filter((item) => item.tags === `цвета`);
 
-let sea = words.filter((item) => item.subject === `морская тема`);
+let sea = words.filter((item) => item.tags === `морская тема`);
 
 export default function PageLibrary() {
   if (words) {
