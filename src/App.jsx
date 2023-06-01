@@ -2,7 +2,6 @@ import "./App.css";
 
 import Header from "./Components/Header/Header";
 import PageMain from "./Pages/PageMain/PageMain";
-import PageLibrary from "./Pages/PageLibrary/PageLibrary";
 import PageCards from "./Pages/PageCards/PageCards";
 import PageWords from "./Pages/PageWords/PageWords";
 import PagePlay from "./Pages/PagePlay/PagePlay";
@@ -26,8 +25,6 @@ function App() {
             <Route path="/PagePlay" element={<PagePlay />} />
 
             <Route path="*" element={<Error />} />
-
-            {/* <Route path="/PageLibrary" element={<PageLibrary />} /> */}
           </Routes>
         </main>
       </div>

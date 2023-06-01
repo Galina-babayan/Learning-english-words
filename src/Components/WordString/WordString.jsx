@@ -56,6 +56,9 @@ export default function WordString(props) {
 
   function redact() {
     changeRedact(true);
+    console.log(valueEn);
+    console.log(isValidInput);
+    //setIsValidInput(false);
   }
 
   function cancel() {
@@ -172,8 +175,8 @@ export default function WordString(props) {
             </form>
           </summary>
         )}
-        {!isRedact && <p>{word.meaning}</p>}
-        {isRedact && (
+        {!isRedact && <p>{word.russian}</p>}
+        {/* {isRedact && (
           <>
             <div>{error}</div>
             <textarea
@@ -187,7 +190,7 @@ export default function WordString(props) {
               rows="5"
             ></textarea>
           </>
-        )}
+        )} */}
       </details>
     </>
   );

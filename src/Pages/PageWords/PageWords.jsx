@@ -3,10 +3,10 @@ import MainButton from "../../Components/MainButton/MainButton";
 import WordString from "../../Components/WordString/WordString";
 import StringAdd from "../../Components/StringAdd/StringAdd";
 
-import Json from "../../Components/utils/Json.js";
+import Json2 from "../../Components/utils/Json2.js";
 import { useState } from "react";
 
-let words = JSON.parse(Json);
+let words = JSON.parse(Json2);
 
 // Почему-то кнопка "добавить слово" (если я нажимаю кнопку "Х" на строке) срабатывает только один раз.
 // Второй раз не появляется пустая строка для ввода.

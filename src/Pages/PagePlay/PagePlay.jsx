@@ -4,30 +4,50 @@ import CardsTopics from "../../Components/CardsTopics/CardsTopics";
 
 import MainButton from "../../Components/MainButton/MainButton";
 
-import Json from "../../Components/utils/Json.js";
+import Json2 from "../../Components/utils/Json2.js";
 import { useEffect, useState } from "react";
 
-let words = JSON.parse(Json);
+let words = JSON.parse(Json2);
+
+let all = words;
 
 let werbs = words.filter((item) => item.tags === `глаголы`);
 
-let professions = words.filter((item) => item.tags === `профессия`);
+// let professions = words.filter((item) => item.tags === `профессия`);
 
-let kitchen = words.filter((item) => item.tags === `кухонные принадлежности`);
+// let kitchen = words.filter((item) => item.tags === `кухонные принадлежности`);
 
-let transport = words.filter((item) => item.tags === `транспорт`);
+// let transport = words.filter((item) => item.tags === `транспорт`);
 
-let clothes = words.filter((item) => item.tags === `одежда`);
+// let clothes = words.filter((item) => item.tags === `одежда`);
 
 let animals = words.filter((item) => item.tags === `животные`);
 
-let plants = words.filter((item) => item.tags === `съедобные растения`);
+//let plants = words.filter((item) => item.tags === `съедобные растения`);
 
 let feelings = words.filter((item) => item.tags === `чувства`);
 
-let colors = words.filter((item) => item.tags === `цвета`);
+//let colors = words.filter((item) => item.tags === `цвета`);
 
-let sea = words.filter((item) => item.tags === `морская тема`);
+//let sea = words.filter((item) => item.tags === `морская тема`);
+
+let building = words.filter((item) => item.tags === `строительство`);
+
+let money = words.filter((item) => item.tags === `деньги`);
+
+let noun = words.filter((item) => item.tags === `существительное`);
+
+let conjunction = words.filter((item) => item.tags === `союз`);
+
+let travel = words.filter((item) => item.tags === `путешествие`);
+
+let hi = words.filter((item) => item.tags === `приветствие`);
+
+let adverb = words.filter((item) => item.tags === `наречие`);
+
+let pronoun = words.filter((item) => item.tags === `местоимение`);
+
+let adjective = words.filter((item) => item.tags === `прилагательное`);
 
 export default function Play() {
   const [arrayCards, setArrayCards] = useState([]);
@@ -42,48 +62,98 @@ export default function Play() {
     setIsStart(true);
   }
 
-  function onClickProfessions() {
-    setCardTopic(professions);
-    setIsStart(true);
-  }
+  // function onClickProfessions() {
+  //   setCardTopic(professions);
+  //   setIsStart(true);
+  // }
 
-  function onClickKitchen() {
-    setCardTopic(kitchen);
-    setIsStart(true);
-  }
+  // function onClickKitchen() {
+  //   setCardTopic(kitchen);
+  //   setIsStart(true);
+  // }
 
-  function onClickTransport() {
-    setCardTopic(transport);
-    setIsStart(true);
-  }
+  // function onClickTransport() {
+  //   setCardTopic(transport);
+  //   setIsStart(true);
+  // }
 
-  function onClickClothes() {
-    setCardTopic(clothes);
-    setIsStart(true);
-  }
+  // function onClickClothes() {
+  //   setCardTopic(clothes);
+  //   setIsStart(true);
+  // }
 
   function onClickAnimals() {
     setCardTopic(animals);
     setIsStart(true);
   }
 
-  function onClickPlants() {
-    setCardTopic(plants);
-    setIsStart(true);
-  }
+  // function onClickPlants() {
+  //   setCardTopic(plants);
+  //   setIsStart(true);
+  // }
 
   function onClickFeelings() {
     setCardTopic(feelings);
     setIsStart(true);
   }
 
-  function onClickColors() {
-    setCardTopic(colors);
+  // function onClickColors() {
+  //   setCardTopic(colors);
+  //   setIsStart(true);
+  // }
+
+  // function onClickSea() {
+  //   setCardTopic(sea);
+  //   setIsStart(true);
+  // }
+
+  function onClickBuild() {
+    setCardTopic(building);
     setIsStart(true);
   }
 
-  function onClickSea() {
-    setCardTopic(sea);
+  function onClickMoney() {
+    setCardTopic(money);
+    setIsStart(true);
+  }
+
+  function onClickNoun() {
+    setCardTopic(noun);
+    setIsStart(true);
+  }
+
+  function onClickConjunction() {
+    setCardTopic(conjunction);
+    setIsStart(true);
+  }
+
+  function onClickTravel() {
+    setCardTopic(travel);
+    setIsStart(true);
+  }
+
+  function onClickHi() {
+    setCardTopic(hi);
+    setIsStart(true);
+  }
+
+  function onClickAdverb() {
+    setCardTopic(adverb);
+    setIsStart(true);
+  }
+
+  function onClickPronoun() {
+    setCardTopic(pronoun);
+    setIsStart(true);
+  }
+
+  function onClickAdjective() {
+    setCardTopic(adjective);
+    setIsStart(true);
+  }
+
+  function onClickAll() {
+    setCardTopic(all);
     setIsStart(true);
   }
 
@@ -143,15 +213,25 @@ export default function Play() {
         <div className="cards__game">
           <CardsTopics
             onClickWerbs={onClickWerbs}
-            onClickProfessions={onClickProfessions}
-            onClickKitchen={onClickKitchen}
-            onClickTransport={onClickTransport}
-            onClickClothes={onClickClothes}
+            onClickAll={onClickAll}
+            // onClickProfessions={onClickProfessions}
+            // onClickKitchen={onClickKitchen}
+            // onClickTransport={onClickTransport}
+            // onClickClothes={onClickClothes}
             onClickAnimals={onClickAnimals}
-            onClickPlants={onClickPlants}
+            // onClickPlants={onClickPlants}
             onClickFeelings={onClickFeelings}
-            onClickColors={onClickColors}
-            onClickSea={onClickSea}
+            // onClickColors={onClickColors}
+            // onClickSea={onClickSea}
+            onClickBuild={onClickBuild}
+            onClickMoney={onClickMoney}
+            onClickNoun={onClickNoun}
+            onClickConjunction={onClickConjunction}
+            onClickTravel={onClickTravel}
+            onClickHi={onClickHi}
+            onClickAdverb={onClickAdverb}
+            onClickPronoun={onClickPronoun}
+            onClickAdjective={onClickAdjective}
           />
           {!isStart && (
             <div className="cards__item-top">
