@@ -5,17 +5,22 @@ import iconDel from "../../images/iconDel.png";
 import iconSave from "../../images/iconSave.png";
 import iconCancel from "../../images/iconCancel.png";
 import Input from "../Input/Input";
+import { WordsContext } from "../../context/Context";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 export default function WordString(props) {
-  let { english, transcription, russian, tags, meaning } = props;
+  const context = useContext(WordsContext);
+
+  const updateWord = context.updateWord;
+  const deleteWord = context.deleteWord;
+
+  let { english, transcription, russian, tags, id } = props;
   const [word, setWord] = useState({
     english,
     transcription,
     russian,
     tags,
-    meaning,
   });
   const [isRedact, changeRedact] = useState(false);
   const [isValidInput, setIsValidInput] = useState(true);
@@ -24,10 +29,31 @@ export default function WordString(props) {
   const [valueRu, setValueRu] = useState(word.russian);
   const [valueTr, setValueTr] = useState(word.transcription);
   const [valueSubject, setValueSubject] = useState(word.tags);
-  const [valueMeaning, setValueMeaning] = useState(word.meaning);
+
+  function redact() {
+    changeRedact(true);
+    console.log(valueEn);
+    console.log(isValidInput);
+  }
+
+  function removeWord() {
+    const extradWord = {
+      english: valueEn,
+      transcription: valueTr,
+      russian: valueRu,
+      tags: valueSubject,
+    };
+    deleteWord(id, extradWord);
+    console.log(id);
+  }
 
   const handleEn = (event) => {
     setValueEn(event.target.value);
+    if (!event.target.value.match("^[a-zA-Z0-9]+$")) {
+      setIsValidInput(false);
+    } else {
+      setIsValidInput(true);
+    }
   };
 
   const handleTr = (event) => {
@@ -44,25 +70,13 @@ export default function WordString(props) {
 
   const [error, setError] = useState("");
 
-  let classNameTextArea = "words-item__meaning";
-  if (error) {
-    classNameTextArea += " words-item__add-error";
-  }
-
   let classNameSaveButton = "words__button-save";
   if (!isValidInput) {
     classNameSaveButton += " words__button-error";
   }
 
-  function redact() {
-    changeRedact(true);
-    console.log(valueEn);
-    console.log(isValidInput);
-    //setIsValidInput(false);
-  }
-
   function cancel() {
-    setWord({ english, transcription, russian, tags, meaning });
+    setWord({ english, transcription, russian, tags });
     changeRedact(false);
   }
 
@@ -74,6 +88,12 @@ export default function WordString(props) {
       valueSubject === ""
     ) {
       setIsValidInput(false);
+    } else if (
+      !valueEn.match("^[a-zA-Z0-9]+$") ||
+      !valueRu.match("[а-яА-ЯЁё]") ||
+      !valueSubject.match("[а-яА-ЯЁё]")
+    ) {
+      setIsValidInput(false);
     } else setIsValidInput(true);
   }
 
@@ -81,33 +101,28 @@ export default function WordString(props) {
     checkString();
   }, [valueEn, valueTr, valueRu, valueSubject]);
 
-  function save(event) {
+  async function save(event) {
     event.preventDefault();
-    const form = new FormData(event.target);
 
     const redactedWord = {
-      english: form.get("english"),
-      transcription: form.get("transcription"),
-      russian: form.get("russian"),
-      tags: form.get("tags"),
-      meaning: valueMeaning,
+      english: valueEn,
+      transcription: valueTr,
+      russian: valueRu,
+      tags: valueSubject,
     };
+
+    updateWord(id, redactedWord);
+    console.log(id);
     console.log(redactedWord);
+    const err = await context.updateWord(redactedWord);
+    setError(err);
 
     changeRedact(false);
   }
 
-  function onHandlerChangeMean(event) {
-    setValueMeaning(event.target.value);
-    if (event.target.value === "") {
-      setError("Поле не может быть пустым!");
-    } else {
-      setError("");
-    }
-  }
-
   return (
     <>
+      {error}
       <details className="words__string">
         {!isRedact && (
           <summary>
@@ -123,7 +138,11 @@ export default function WordString(props) {
                   </button>
                 </div>
                 <div className="words__button">
-                  <button className="words__result">
+                  <button
+                    onClick={removeWord}
+                    id={word.english}
+                    className="words__result"
+                  >
                     <img src={iconDel} alt="" />
                   </button>
                 </div>
@@ -133,7 +152,7 @@ export default function WordString(props) {
         )}
         {isRedact && (
           <summary>
-            <form onSubmit={save} className="words-item__body">
+            <form onSubmit={save} id={id} className="words-item__body">
               <Input
                 id="1"
                 name="english"
@@ -176,21 +195,6 @@ export default function WordString(props) {
           </summary>
         )}
         {!isRedact && <p>{word.russian}</p>}
-        {/* {isRedact && (
-          <>
-            <div>{error}</div>
-            <textarea
-              onChange={onHandlerChangeMean}
-              className={classNameTextArea}
-              placeholder={word.meaning}
-              value={valueMeaning}
-              name="meaning"
-              id=""
-              cols="60"
-              rows="5"
-            ></textarea>
-          </>
-        )} */}
       </details>
     </>
   );

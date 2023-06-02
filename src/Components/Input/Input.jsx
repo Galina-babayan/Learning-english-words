@@ -2,7 +2,7 @@ import "../WordString/WordString.scss";
 import { useState } from "react";
 
 export default function Input(props) {
-  let { valueWord, onChange, name, onBlur, pattern } = props;
+  let { valueWord, onChange, name, onBlur, pattern, isValidInput } = props;
 
   const [valueInput, setValueInput] = useState("");
   const [isValid, setIsValid] = useState(true);
@@ -22,6 +22,7 @@ export default function Input(props) {
           setError("Только латиница!");
         } else {
           setIsValid(true);
+
           setError("");
         }
 

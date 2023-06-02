@@ -3,73 +3,37 @@ import MainButton from "../../Components/MainButton/MainButton";
 import WordString from "../../Components/WordString/WordString";
 import StringAdd from "../../Components/StringAdd/StringAdd";
 
-import Json2 from "../../Components/utils/Json2.js";
-import { useState } from "react";
 
-let words = JSON.parse(Json2);
+import { useContext, useState } from "react";
+import { WordsContext } from "../../context/Context";
 
-// Почему-то кнопка "добавить слово" (если я нажимаю кнопку "Х" на строке) срабатывает только один раз.
-// Второй раз не появляется пустая строка для ввода.
+
 
 export default function PageWords() {
   const [addWord, setAddWord] = useState(false);
-  const [newString, setdelString] = useState(true);
+  const [newString, setNewString] = useState(true);
 
-  // const [newEn, setNewEn] = useState("");
-  // const [newRu, setNewRu] = useState("");
-  // const [newTr, setNewTr] = useState("");
-  // const [newSubject, setNewSubject] = useState("");
-  // const [newMeaning, setNewMeaning] = useState("");
+  const context = useContext(WordsContext);
+  const words = context.words;
 
   function newWord() {
     setAddWord(true);
-    setdelString(true);
+    setNewString(true);   
   }
 
-  // let redactedWord;
-  // redactedWord = {
-  //   en: newEn,
-  //   tr: newTr,
-  //   ru: newRu,
-  //   subject: newSubject,
-  //   // meaning: newMeaning,
-  // };
-
-  // useEffect(() => {
-  //   getNewWord();
-  // }, [newEn, newTr, newRu, newSubject]);
+  
 
   function delHandleString() {
     setAddWord(false);
-    setdelString(false);
+    setNewString(false);   
+    
   }
 
-  // function getNewWord(event) {
-  //   const form = new FormData(event.target);
 
-  //   setNewEn(form.get("english"));
 
-  //   setNewRu(form.get("russian"));
-  //   setNewTr(form.get("transcription"));
-  //   setNewSubject(form.get("tags"));
-
-  //   // const redactedWord = {
-  //   //   en: newEn,
-  //   //   tr: newTr,
-  //   //   ru: newRu,
-  //   //   subject: newSubject,
-  //   //   // meaning: newMeaning,
-  //   // };
-  //   // console.log(redactedWord);
-  // }
-  // function finishAdd() {
-  //   setAddWord(false);
-  //   setdelString(false);
-  // }
-
-  // function onSaveEn(newEn) {
-  //   setNewEn(newEn);
-  // }
+  if (!words) {
+    return <h1>Loading</h1>;
+  }
 
   if (words) {
     return (
@@ -79,7 +43,11 @@ export default function PageWords() {
 
           <div className="words__body">
             <div className="words__aside">
-              <MainButton funcClick={newWord} text="Добавить слово" />
+              <MainButton
+                //onButtonClick={addNewWord}
+                funcClick={newWord}
+                text="Добавить слово"
+              />
             </div>
             {addWord && newString && <StringAdd delString={delHandleString} />}
 
@@ -96,6 +64,7 @@ export default function PageWords() {
               <div className="words__list">
                 {words.map((word) => (
                   <WordString
+                    id={word.id}
                     key={word.id}
                     english={word.english}
                     transcription={word.transcription}
