@@ -30,6 +30,7 @@ export const WordsContextProvider = ({ children }) => {
   }
 
   async function addWord(newWord) {
+    setWords([...words, json]);
     console.log("post");
     try {
       const data = await fetch("/api/words/add", {
@@ -44,7 +45,7 @@ export const WordsContextProvider = ({ children }) => {
       const json = await data.json();
 
       console.log(json);
-      //   setWords([...words, json]);
+
       //   loadData();
       //   console.log(words);
     } catch (err) {
@@ -54,6 +55,10 @@ export const WordsContextProvider = ({ children }) => {
 
   async function updateWord(id, word) {
     console.log("update");
+
+    const index = words.findIndex((item) => item.id === word.id);
+    words[index] = word;
+    setWords([...words]);
     try {
       const data = await fetch(`/api/words/${id}/update`, {
         method: "POST",
@@ -67,15 +72,20 @@ export const WordsContextProvider = ({ children }) => {
       const json = await data.json();
 
       console.log(json);
+
       //setWords([...words, json]);
-      loadData();
-      console.log(words);
+      //loadData();
+      //console.log(words);
     } catch (err) {
       return "Не получилось редактировать слово";
     }
   }
 
   async function deleteWord(id, word) {
+    const index = words.findIndex((item) => item.id === word.id);
+    words.splice([index], 1);
+    setWords([...words]);
+
     console.log("delete");
     try {
       const data = await fetch(`/api/words/${id}/delete`, {
@@ -90,7 +100,7 @@ export const WordsContextProvider = ({ children }) => {
       const json = await data.json();
 
       console.log(json);
-      //setWords([...words, json]);
+
       //loadData();
       //console.log(words);
     } catch (err) {
