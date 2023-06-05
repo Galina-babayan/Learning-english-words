@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 export const WordsContext = createContext();
 
 export const WordsContextProvider = ({ children }) => {
-  const [words, setWords] = useState("");
+  const [words, setWords] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -30,82 +30,110 @@ export const WordsContextProvider = ({ children }) => {
   }
 
   async function addWord(newWord) {
-    setWords([...words, json]);
-    console.log("post");
+    console.log("addWord");
+
     try {
-      const data = await fetch("/api/words/add", {
+      fetch("/api/words/add", {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newWord),
-      });
-
-      const json = await data.json();
-
-      console.log(json);
-
-      //   loadData();
-      //   console.log(words);
-    } catch (err) {
-      return "Что-то пошло не так";
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("попробуйте еще раз");
+          }
+        })
+        .then((data) => {
+          setIsLoading(false);
+          setWords(data);
+        });
+    } catch (error) {
+      setIsLoading(false);
+      setError(error);
+      return "Не получилось добавить слово";
     }
+
+    loadData();
+
   }
 
-  async function updateWord(id, word) {
+  async function updateWord(id, newWord) {
     console.log("update");
 
-    const index = words.findIndex((item) => item.id === word.id);
-    words[index] = word;
-    setWords([...words]);
+    // const index = words.findIndex((item) => item.id === word.id);
+    // words[index] = word;
+    // setWords([...words]);
+
     try {
-      const data = await fetch(`/api/words/${id}/update`, {
+      fetch(`/api/words/${id}/update`, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(word),
-      });
-
-      const json = await data.json();
-
-      console.log(json);
-
-      //setWords([...words, json]);
-      //loadData();
-      //console.log(words);
-    } catch (err) {
+        body: JSON.stringify(newWord),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("попробуйте еще раз");
+          }
+        })
+        .then((data) => {
+          setIsLoading(false);
+          setWords(data);
+        });
+    } catch (error) {
+      setIsLoading(false);
+      setError(error);
       return "Не получилось редактировать слово";
     }
+    loadData();
+
+
   }
 
-  async function deleteWord(id, word) {
-    const index = words.findIndex((item) => item.id === word.id);
-    words.splice([index], 1);
-    setWords([...words]);
+  async function deleteWord(id, newWord) {
+    // const index = words.findIndex((item) => item.id === word.id);
+    // words.splice([index], 1);
+    // setWords([...words]);
 
     console.log("delete");
+
     try {
-      const data = await fetch(`/api/words/${id}/delete`, {
+      fetch(`/api/words/${id}/delete`, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(word),
-      });
-
-      const json = await data.json();
-
-      console.log(json);
-
-      //loadData();
-      //console.log(words);
-    } catch (err) {
+        body: JSON.stringify(newWord),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("попробуйте еще раз");
+          }
+        })
+        .then((data) => {
+          setIsLoading(false);
+          setWords(data);
+        });
+    } catch (error) {
+      setIsLoading(false);
+      setError(error);
       return "Не удалось удалить слово";
     }
+    loadData();
+
+
   }
 
   useEffect(() => {

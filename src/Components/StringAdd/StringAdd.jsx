@@ -21,10 +21,12 @@ export default function StringAdd(props) {
   const [error, setError] = useState("");
   const [err, setErr] = useState("");
 
+  const { addWord } = useContext(WordsContext);
+
   const context = useContext(WordsContext);
 
-  const addWord = context.addWord;
-  const words = context.words;
+  //const addWord = context.addWord;
+  //const words = context.words;
 
   const handleEn = (event) => {
     setValueEn(event.target.value);
@@ -91,7 +93,7 @@ export default function StringAdd(props) {
       transcription: form.get("transcription"),
       russian: form.get("russian"),
       tags: form.get("tags"),
-      id: words.length + 5,
+      //id: words.length + 5,
     };
 
     const err = await context.addWord(newWord);

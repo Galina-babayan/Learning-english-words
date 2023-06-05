@@ -3,39 +3,35 @@ import MainButton from "../../Components/MainButton/MainButton";
 import WordString from "../../Components/WordString/WordString";
 import StringAdd from "../../Components/StringAdd/StringAdd";
 
-
 import { useContext, useState } from "react";
 import { WordsContext } from "../../context/Context";
-
-
 
 export default function PageWords() {
   const [addWord, setAddWord] = useState(false);
   const [newString, setNewString] = useState(true);
 
-  const context = useContext(WordsContext);
-  const words = context.words;
+  const { words} = useContext(WordsContext);
+
+
+  //const context = useContext(WordsContext);
+  //const words = context.words;
 
   function newWord() {
     setAddWord(true);
-    setNewString(true);   
+    setNewString(true);
   }
-
-  
 
   function delHandleString() {
     setAddWord(false);
-    setNewString(false);   
-    
+    setNewString(false);
   }
-
-
 
   if (!words) {
-    return <h1>Loading</h1>;
+    return <div>LOADING...</div>;
+  } else if (words) {
+    console.log(words);
   }
-
-  if (words) {
+  {
     return (
       <section className="words">
         <div className="words__container container">
@@ -81,5 +77,4 @@ export default function PageWords() {
       </section>
     );
   }
-  return "LOADING";
 }

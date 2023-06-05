@@ -11,9 +11,10 @@ import { useState, useEffect, useContext } from "react";
 
 export default function WordString(props) {
   const context = useContext(WordsContext);
+  const { updateWord, deleteWord } = useContext(WordsContext);
 
-  const updateWord = context.updateWord;
-  const deleteWord = context.deleteWord;
+  //const updateWord = context.updateWord;
+  //const deleteWord = context.deleteWord;
 
   let { english, transcription, russian, tags, id } = props;
   const [word, setWord] = useState({
@@ -103,12 +104,15 @@ export default function WordString(props) {
 
   async function save(event) {
     event.preventDefault();
+    //const form = new FormData(event.target);
+    console.log(id);
 
     const redactedWord = {
       english: valueEn,
       transcription: valueTr,
       russian: valueRu,
       tags: valueSubject,
+      id: id,
     };
 
     updateWord(id, redactedWord);
@@ -123,6 +127,7 @@ export default function WordString(props) {
   return (
     <>
       {error}
+
       <details className="words__string">
         {!isRedact && (
           <summary>
