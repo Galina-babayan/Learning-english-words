@@ -33,7 +33,7 @@ export const WordsContextProvider = ({ children }) => {
     console.log("addWord");
 
     try {
-      fetch("/api/words/add", {
+      fetch("http://itgirlschool.justmakeit.ru/api/words/add", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -49,8 +49,9 @@ export const WordsContextProvider = ({ children }) => {
           }
         })
         .then((data) => {
+          console.log(data);
           setIsLoading(false);
-          setWords(data);
+          setWords((prevWords) => [...prevWords, data]);
         });
     } catch (error) {
       setIsLoading(false);
@@ -59,7 +60,6 @@ export const WordsContextProvider = ({ children }) => {
     }
 
     loadData();
-
   }
 
   async function updateWord(id, newWord) {
@@ -70,7 +70,7 @@ export const WordsContextProvider = ({ children }) => {
     // setWords([...words]);
 
     try {
-      fetch(`/api/words/${id}/update`, {
+      fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -86,17 +86,15 @@ export const WordsContextProvider = ({ children }) => {
           }
         })
         .then((data) => {
+          console.log(data);
           setIsLoading(false);
-          setWords(data);
+          setWords((prevWords) => [...prevWords, data]);
         });
     } catch (error) {
       setIsLoading(false);
       setError(error);
       return "Не получилось редактировать слово";
     }
-    loadData();
-
-
   }
 
   async function deleteWord(id, newWord) {
@@ -124,7 +122,7 @@ export const WordsContextProvider = ({ children }) => {
         })
         .then((data) => {
           setIsLoading(false);
-          setWords(data);
+          setWords((prevWords) => prevWords.filter((word) => word.id !== id));
         });
     } catch (error) {
       setIsLoading(false);
@@ -132,8 +130,6 @@ export const WordsContextProvider = ({ children }) => {
       return "Не удалось удалить слово";
     }
     loadData();
-
-
   }
 
   useEffect(() => {

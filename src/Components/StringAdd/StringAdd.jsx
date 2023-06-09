@@ -21,7 +21,7 @@ export default function StringAdd(props) {
   const [error, setError] = useState("");
   const [err, setErr] = useState("");
 
-  const { addWord } = useContext(WordsContext);
+  const { addWord, words } = useContext(WordsContext);
 
   const context = useContext(WordsContext);
 
@@ -80,9 +80,9 @@ export default function StringAdd(props) {
     } else setIsValidInput(true);
   }
 
-  useEffect(() => {
-    checkString();
-  }, [valueEn, valueTr, valueRu, valueSubject]);
+  // useEffect(() => {
+  //   checkString();
+  // }, [valueEn, valueTr, valueRu, valueSubject]);
 
   async function save(event) {
     event.preventDefault();
@@ -93,15 +93,12 @@ export default function StringAdd(props) {
       transcription: form.get("transcription"),
       russian: form.get("russian"),
       tags: form.get("tags"),
-      //id: words.length + 5,
     };
 
     const err = await context.addWord(newWord);
     setErr(err);
 
-    console.log(newWord);
-
-    addWord(newWord);
+    //addWord(newWord);
   }
 
   return (

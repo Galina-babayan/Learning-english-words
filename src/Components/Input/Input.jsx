@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Input(props) {
   let { valueWord, onChange, name, onBlur, pattern, isValidInput } = props;
 
-  const [valueInput, setValueInput] = useState("");
+  const [valueInput, setValueInput] = useState(valueWord);
   const [isValid, setIsValid] = useState(true);
   const [error, setError] = useState("");
 

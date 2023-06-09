@@ -98,9 +98,9 @@ export default function WordString(props) {
     } else setIsValidInput(true);
   }
 
-  useEffect(() => {
-    checkString();
-  }, [valueEn, valueTr, valueRu, valueSubject]);
+  // useEffect(() => {
+  //   checkString();
+  // }, [valueEn, valueTr, valueRu, valueSubject]);
 
   async function save(event) {
     event.preventDefault();
