@@ -11,10 +11,9 @@ import { useState, useEffect, useContext } from "react";
 
 export default function WordString(props) {
   const context = useContext(WordsContext);
-  const { updateWord, deleteWord } = useContext(WordsContext);
-
-  //const updateWord = context.updateWord;
-  //const deleteWord = context.deleteWord;
+  //const { updateWord, deleteWord } = useContext(WordsContext);
+  const updateWord = context.updateWord;
+  const deleteWord = context.deleteWord;
 
   let { english, transcription, russian, tags, id } = props;
   const [word, setWord] = useState({
@@ -30,6 +29,15 @@ export default function WordString(props) {
   const [valueRu, setValueRu] = useState(word.russian);
   const [valueTr, setValueTr] = useState(word.transcription);
   const [valueSubject, setValueSubject] = useState(word.tags);
+
+  useEffect(() => {
+    setWord({
+      english: props.english,
+      transcription: props.transcription,
+      russian: props.russian,
+      tags: props.tags,
+    });
+  }, [props.english, props.transcription, props.russian, props.tags]);
 
   function redact() {
     changeRedact(true);
@@ -104,7 +112,7 @@ export default function WordString(props) {
 
   async function save(event) {
     event.preventDefault();
-    //const form = new FormData(event.target);
+
     console.log(id);
 
     const redactedWord = {
@@ -112,7 +120,7 @@ export default function WordString(props) {
       transcription: valueTr,
       russian: valueRu,
       tags: valueSubject,
-      id: id,
+      // id: id,
     };
 
     updateWord(id, redactedWord);

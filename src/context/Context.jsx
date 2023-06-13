@@ -31,9 +31,8 @@ export const WordsContextProvider = ({ children }) => {
 
   async function addWord(newWord) {
     console.log("addWord");
-
     try {
-      fetch("http://itgirlschool.justmakeit.ru/api/words/add", {
+      fetch("api/words/add", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -49,7 +48,6 @@ export const WordsContextProvider = ({ children }) => {
           }
         })
         .then((data) => {
-          console.log(data);
           setIsLoading(false);
           setWords((prevWords) => [...prevWords, data]);
         });
@@ -58,78 +56,61 @@ export const WordsContextProvider = ({ children }) => {
       setError(error);
       return "Не получилось добавить слово";
     }
-
     loadData();
   }
 
   async function updateWord(id, newWord) {
-    console.log("update");
-
-    // const index = words.findIndex((item) => item.id === word.id);
-    // words[index] = word;
-    // setWords([...words]);
-
     try {
-      fetch(`http://itgirlschool.justmakeit.ru/api/words/${id}/update`, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newWord),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("попробуйте еще раз");
-          }
-        })
-        .then((data) => {
-          console.log(data);
-          setIsLoading(false);
-          setWords((prevWords) => [...prevWords, data]);
-        });
+      setIsLoading(true);
+      const response = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newWord),
+        }
+      );
+
+      if (response.ok) {
+        setWords((prevWords) =>
+          prevWords.map((word) =>
+            word.id === id ? { ...word, ...newWord } : word
+          )
+        );
+      } else {
+        throw new Error("попробуйте еще раз");
+      }
     } catch (error) {
-      setIsLoading(false);
       setError(error);
-      return "Не получилось редактировать слово";
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  async function deleteWord(id, newWord) {
-    // const index = words.findIndex((item) => item.id === word.id);
-    // words.splice([index], 1);
-    // setWords([...words]);
-
+  async function deleteWord(id, word) {
     console.log("delete");
-
     try {
-      fetch(`/api/words/${id}/delete`, {
+      const data = await fetch(`/api/words/${id}/delete`, {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newWord),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("попробуйте еще раз");
-          }
-        })
-        .then((data) => {
-          setIsLoading(false);
-          setWords((prevWords) => prevWords.filter((word) => word.id !== id));
-        });
-    } catch (error) {
-      setIsLoading(false);
-      setError(error);
+        body: JSON.stringify(word),
+      });
+
+      const json = await data.json();
+
+      console.log(json);
+      //setWords([...words, json]);
+      //loadData();
+      //console.log(words);
+    } catch (err) {
       return "Не удалось удалить слово";
     }
-    loadData();
   }
 
   useEffect(() => {
@@ -143,7 +124,7 @@ export const WordsContextProvider = ({ children }) => {
     error && <div>{`Ошибка: ${error.message}`}</div>;
   }
 
-  const values = { words, addWord, updateWord, deleteWord };
+  const values = { words, addWord, updateWord, deleteWord, loadData };
 
   return (
     <WordsContext.Provider value={values}>{children}</WordsContext.Provider>

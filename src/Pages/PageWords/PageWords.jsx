@@ -10,11 +10,10 @@ export default function PageWords() {
   const [addWord, setAddWord] = useState(false);
   const [newString, setNewString] = useState(true);
 
-  const { words} = useContext(WordsContext);
+  //const { words} = useContext(WordsContext);
 
-
-  //const context = useContext(WordsContext);
-  //const words = context.words;
+  const context = useContext(WordsContext);
+  const words = context.words;
 
   function newWord() {
     setAddWord(true);
@@ -28,10 +27,8 @@ export default function PageWords() {
 
   if (!words) {
     return <div>LOADING...</div>;
-  } else if (words) {
-    console.log(words);
   }
-  {
+  if (words) {
     return (
       <section className="words">
         <div className="words__container container">
@@ -58,10 +55,10 @@ export default function PageWords() {
 
             <div className="words__wrapper">
               <div className="words__list">
-                {words.map((word) => (
+                {words.map((word, i) => (
                   <WordString
                     id={word.id}
-                    key={word.id}
+                    key={i}
                     english={word.english}
                     transcription={word.transcription}
                     russian={word.russian}
@@ -77,4 +74,5 @@ export default function PageWords() {
       </section>
     );
   }
+  return "LOADING";
 }

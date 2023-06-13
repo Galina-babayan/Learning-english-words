@@ -549,7 +549,7 @@ let Json = `[
       "id": 64,
       "english": "lion",
       "russian": "лев",
-      "transcription": "[ 'laiən ]",
+      "transcription": "['laiən]",
       "tags": "животные",
       "meaning": "a large, wild animal of the cat family, with light brown fur"
     },
@@ -1069,7 +1069,7 @@ let Json = `[
     {
       "id": 125,
       "english": "tenderness",
-      "russian": "нежность (!NEW!)",
+      "russian": "нежность",
       "transcription": "[ 'tendənis ]",
       "tags": "чувства",
       "meaning": "kind and gentle"
