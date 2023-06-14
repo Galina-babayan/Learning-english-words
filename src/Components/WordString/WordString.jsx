@@ -5,15 +5,20 @@ import iconDel from "../../images/iconDel.png";
 import iconSave from "../../images/iconSave.png";
 import iconCancel from "../../images/iconCancel.png";
 import Input from "../Input/Input";
-import { WordsContext } from "../../context/Context";
+import { observer, inject } from "mobx-react";
+//import { WordsContext } from "../../context/Context";
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 
-export default function WordString(props) {
-  const context = useContext(WordsContext);
+function WordString(props, { updateWord, deleteWord, LoadData }) {
+  // const context = useContext(WordsContext);
   //const { updateWord, deleteWord } = useContext(WordsContext);
-  const updateWord = context.updateWord;
-  const deleteWord = context.deleteWord;
+  // const updateWord = wordsData.updateWord;
+  // const deleteWord = wordsData.deleteWord;
+
+  useEffect(() => {
+    LoadData();
+  });
 
   let { english, transcription, russian, tags, id } = props;
   const [word, setWord] = useState({
@@ -126,7 +131,7 @@ export default function WordString(props) {
     updateWord(id, redactedWord);
     console.log(id);
     console.log(redactedWord);
-    const err = await context.updateWord(redactedWord);
+    const err = await updateWord(redactedWord);
     setError(err);
 
     changeRedact(false);
@@ -212,3 +217,15 @@ export default function WordString(props) {
     </>
   );
 }
+
+export default inject(({ wordsData }) => {
+  const { updateWord, deleteWord, LoadData } = wordsData;
+
+  return {
+    updateWord,
+    deleteWord,
+    LoadData,
+  };
+})(observer(WordString));
+
+//export default inject(["wordsData"])(observer(WordString));

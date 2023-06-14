@@ -4,14 +4,21 @@ import CardsTopics from "../../Components/CardsTopics/CardsTopics";
 
 import MainButton from "../../Components/MainButton/MainButton";
 
-import { useEffect, useState, useContext } from "react";
-import { WordsContext } from "../../context/Context";
+import { useEffect, useState } from "react";
+import { observer, inject } from "mobx-react";
+//import { WordsContext } from "../../context/Context";
 
-export default function Play() {
-  const context = useContext(WordsContext);
-  const words = context.words;
+function Play({ words, LoadData }) {
+  // const context = useContext(WordsContext);
+  // const words = context.words;
+  //const words = wordsData.words;
+
   let werbs = words.filter((item) => item.tags === `глагол`);
   let all = words;
+
+  useEffect(() => {
+    LoadData();
+  });
 
   let animals = words.filter((item) => item.tags === `животные`);
   let feelings = words.filter((item) => item.tags === `состояние`);
@@ -268,3 +275,17 @@ export default function Play() {
     </section>
   );
 }
+
+export default inject(({ wordsData }) => {
+  const { words, LoadData } = wordsData;
+
+  useEffect(() => {
+    LoadData();
+  });
+  return {
+    words,
+    LoadData,
+  };
+})(observer(Play));
+
+//export default inject(["wordsData"])(observer(Play));

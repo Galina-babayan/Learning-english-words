@@ -5,10 +5,11 @@ import iconSave from "../../images/iconSave.png";
 
 import Input from "../Input/Input";
 
-import { useState, useEffect, useContext } from "react";
-import { WordsContext } from "../../context/Context";
+import { useState, useEffect } from "react";
+//import { WordsContext } from "../../context/Context";
+import { inject, observer } from "mobx-react";
 
-export default function StringAdd(props) {
+function StringAdd(props, { addWord, LoadData }) {
   //let { id } = props;
   const [isValidInput, setIsValidInput] = useState(true);
 
@@ -23,10 +24,14 @@ export default function StringAdd(props) {
 
   //const { addWord, words } = useContext(WordsContext);
 
-  const context = useContext(WordsContext);
+  // const context = useContext(WordsContext);
 
-  const addWord = context.addWord;
-  const words = context.words;
+  //const { addWord } = wordsData;
+  //const {words} = wordsData;
+
+  useEffect(() => {
+    LoadData();
+  });
 
   const handleEn = (event) => {
     setValueEn(event.target.value);
@@ -95,7 +100,7 @@ export default function StringAdd(props) {
       tags: form.get("tags"),
     };
 
-    const err = await context.addWord(newWord);
+    const err = await addWord(newWord);
     setErr(err);
 
     //addWord(newWord);
@@ -151,3 +156,17 @@ export default function StringAdd(props) {
     </>
   );
 }
+
+export default inject(({ wordsData }) => {
+  const { addWord, LoadData } = wordsData;
+
+  useEffect(() => {
+    LoadData();
+  });
+  return {
+    addWord,
+    LoadData,
+  };
+})(observer(StringAdd));
+
+//export default inject(["wordsData"])(observer(StringAdd));

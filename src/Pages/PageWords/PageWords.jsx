@@ -3,17 +3,22 @@ import MainButton from "../../Components/MainButton/MainButton";
 import WordString from "../../Components/WordString/WordString";
 import StringAdd from "../../Components/StringAdd/StringAdd";
 
-import { useContext, useState } from "react";
-import { WordsContext } from "../../context/Context";
+import { useState, useEffect } from "react";
+import { observer, inject } from "mobx-react";
+//import { WordsContext } from "../../context/Context";
 
-export default function PageWords() {
+function PageWords({ words, LoadData }) {
   const [addWord, setAddWord] = useState(false);
   const [newString, setNewString] = useState(true);
 
-  //const { words} = useContext(WordsContext);
+  //const words = wordsData.words;
 
-  const context = useContext(WordsContext);
-  const words = context.words;
+  useEffect(() => {
+    LoadData();
+  }, []);
+
+  // const context = useContext(WordsContext);
+  // const words = context.words;
 
   function newWord() {
     setAddWord(true);
@@ -76,3 +81,14 @@ export default function PageWords() {
   }
   return "LOADING";
 }
+
+export default inject(({ wordsData }) => {
+  const { words, LoadData } = wordsData;
+
+  return {
+    words,
+    LoadData,
+  };
+})(observer(PageWords));
+
+//export default inject(["wordsData"])(observer(PageWords));

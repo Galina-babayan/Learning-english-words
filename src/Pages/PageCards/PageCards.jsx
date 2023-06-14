@@ -5,15 +5,19 @@ import WordCard from "../../Components/WordCard/WordCard";
 
 import MainButton from "../../Components/MainButton/MainButton";
 
+import { useState, useEffect } from "react";
+import { observer, inject } from "mobx-react";
+//import { WordsContext } from "../../context/Context";
 
-import { useState, useContext } from "react";
-import { WordsContext } from "../../context/Context";
-
-
-export default function PageCards() {
-  const context = useContext(WordsContext);
-  const words = context.words;
+function PageCards({ words, LoadData }) {
+  // const context = useContext(WordsContext);
+  // const words = context.words;
+  //const words = wordsData.words;
   console.log(words);
+
+  useEffect(() => {
+    LoadData();
+  });
   let werbs = words.filter((item) => item.tags === `глагол`);
   let all = words;
 
@@ -62,7 +66,6 @@ export default function PageCards() {
     console.log(isCheckedWords);
   }
 
-  
   function onClickAnimals() {
     setCardTopic(animals);
     setIsStart(true);
@@ -72,7 +75,6 @@ export default function PageCards() {
     setCardTopic(feelings);
     setIsStart(true);
   }
-
 
   function onClickBuild() {
     setCardTopic(building);
@@ -130,9 +132,9 @@ export default function PageCards() {
                 <div className="cards__game">
                   <CardsTopics
                     onClickWerbs={onClickWerbs}
-                    onClickAll={onClickAll}                   
-                    onClickAnimals={onClickAnimals}                    
-                    onClickFeelings={onClickFeelings}                    
+                    onClickAll={onClickAll}
+                    onClickAnimals={onClickAnimals}
+                    onClickFeelings={onClickFeelings}
                     onClickBuild={onClickBuild}
                     onClickMoney={onClickMoney}
                     onClickNoun={onClickNoun}
@@ -195,3 +197,14 @@ export default function PageCards() {
   }
   return "LOADING";
 }
+
+export default inject(({ wordsData }) => {
+  const { words, LoadData } = wordsData;
+
+  return {
+    words,
+    LoadData,
+  };
+})(observer(PageCards));
+
+//export default inject(["wordsData"])(observer(PageCards));

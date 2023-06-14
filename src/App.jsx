@@ -7,11 +7,13 @@ import PageWords from "./Pages/PageWords/PageWords";
 import PagePlay from "./Pages/PagePlay/PagePlay";
 import Error from "./Pages/Error404/Error";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { WordsContextProvider } from "./context/Context";
+//import { WordsContextProvider } from "./context/Context";
+import { Provider } from "mobx-react";
+import store from "./Components/store/store";
 
 function App() {
   return (
-    <WordsContextProvider>
+    <Provider {...store}>
       <Router>
         <div className="wrapper">
           <Header />
@@ -31,7 +33,7 @@ function App() {
           </main>
         </div>
       </Router>
-    </WordsContextProvider>
+    </Provider>
   );
 }
 
