@@ -36,11 +36,7 @@ export default function PageWords() {
 
           <div className="words__body">
             <div className="words__aside">
-              <MainButton
-                //onButtonClick={addNewWord}
-                funcClick={newWord}
-                text="Добавить слово"
-              />
+              <MainButton funcClick={newWord} text="Добавить слово" />
             </div>
             {addWord && newString && <StringAdd delString={delHandleString} />}
 

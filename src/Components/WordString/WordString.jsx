@@ -89,27 +89,6 @@ export default function WordString(props) {
     changeRedact(false);
   }
 
-  function checkString() {
-    if (
-      valueEn === "" ||
-      valueTr === "" ||
-      valueRu === "" ||
-      valueSubject === ""
-    ) {
-      setIsValidInput(false);
-    } else if (
-      !valueEn.match("^[a-zA-Z0-9]+$") ||
-      !valueRu.match("[а-яА-ЯЁё]") ||
-      !valueSubject.match("[а-яА-ЯЁё]")
-    ) {
-      setIsValidInput(false);
-    } else setIsValidInput(true);
-  }
-
-  // useEffect(() => {
-  //   checkString();
-  // }, [valueEn, valueTr, valueRu, valueSubject]);
-
   async function save(event) {
     event.preventDefault();
 
@@ -122,6 +101,8 @@ export default function WordString(props) {
       tags: valueSubject,
       // id: id,
     };
+
+    console.log(transcription);
 
     updateWord(id, redactedWord);
     console.log(id);

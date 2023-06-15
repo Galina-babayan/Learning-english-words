@@ -9,7 +9,6 @@ import { useState, useEffect, useContext } from "react";
 import { WordsContext } from "../../context/Context";
 
 export default function StringAdd(props) {
-  //let { id } = props;
   const [isValidInput, setIsValidInput] = useState(true);
 
   const [valueEn, setValueEn] = useState("");
@@ -21,12 +20,11 @@ export default function StringAdd(props) {
   const [error, setError] = useState("");
   const [err, setErr] = useState("");
 
-  //const { addWord, words } = useContext(WordsContext);
+  //const { addWord } = useContext(WordsContext);
 
   const context = useContext(WordsContext);
 
   const addWord = context.addWord;
-  const words = context.words;
 
   const handleEn = (event) => {
     setValueEn(event.target.value);
@@ -97,6 +95,7 @@ export default function StringAdd(props) {
 
     const err = await context.addWord(newWord);
     setErr(err);
+    console.log(newWord);
 
     //addWord(newWord);
   }
@@ -118,11 +117,7 @@ export default function StringAdd(props) {
 
             <div className="words__service">
               <div className={classNameSaveButton}>
-                <button
-                  // onClick={finish}
-                  disabled={!isValidInput}
-                  className="words__result"
-                >
+                <button disabled={!isValidInput} className="words__result">
                   <img src={iconSave} alt="" />
                 </button>
               </div>

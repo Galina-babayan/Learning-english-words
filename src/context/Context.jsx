@@ -75,6 +75,7 @@ export const WordsContextProvider = ({ children }) => {
       );
 
       if (response.ok) {
+        setIsLoading(false);
         setWords((prevWords) =>
           prevWords.map((word) =>
             word.id === id ? { ...word, ...newWord } : word

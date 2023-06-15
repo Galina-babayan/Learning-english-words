@@ -61,65 +61,6 @@ export default function Input(props) {
         value: inputValue,
       },
     });
-
-    // switch (event.target.name) {
-    //   case "english":
-    //     onChange(event);
-    //     if (event.target.value === "") {
-    //       setIsValid(false);
-    //       setError("Заполните поле!");
-    //     } else if (!event.target.value.match("^[a-zA-Z0-9]+$")) {
-    //       setIsValid(false);
-    //       setError("Только латиница!");
-    //     } else {
-    //       setIsValid(true);
-
-    //       setError("");
-    //     }
-
-    //     break;
-    //   case "russian":
-    //     onChange(event);
-    //     if (event.target.value === "") {
-    //       setIsValid(false);
-    //       setError("Заполните поле!");
-    //     } else if (!event.target.value.match("[а-яА-ЯЁё]")) {
-    //       setIsValid(false);
-    //       setError("Только кириллица!");
-    //     } else {
-    //       setIsValid(true);
-    //       setError("");
-    //     }
-    //     break;
-    //   case "transcription":
-    //     onChange(event);
-    //     if (event.target.value === "") {
-    //       setIsValid(false);
-    //       setError("Заполните поле!");
-    //     }
-    //     // else if (!event.target.value.match("^[a-zA-Z0-9[]]+$")) {
-    //     //   setIsValid(false);
-    //     //   setError("Только латиница!");
-    //     // }
-    //     else {
-    //       setIsValid(true);
-    //       setError("");
-    //     }
-    //     break;
-    //   case "tags":
-    //     onChange(event);
-    //     if (event.target.value === "") {
-    //       setIsValid(false);
-    //       setError("Заполните поле!");
-    //     } else if (!event.target.value.match("[а-яА-ЯЁё]")) {
-    //       setIsValid(false);
-    //       setError("Только кириллица!");
-    //     } else {
-    //       setIsValid(true);
-    //       setError("");
-    //     }
-    //     break;
-    // }
   }
 
   return (
