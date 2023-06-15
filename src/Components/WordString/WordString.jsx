@@ -10,14 +10,14 @@ import { observer, inject } from "mobx-react";
 
 import { useState, useEffect } from "react";
 
-function WordString(props, { updateWord, deleteWord, LoadData }) {
+function WordString(props, { updateWord, deleteWord, loadData }) {
   // const context = useContext(WordsContext);
   //const { updateWord, deleteWord } = useContext(WordsContext);
   // const updateWord = wordsData.updateWord;
   // const deleteWord = wordsData.deleteWord;
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
 
   let { english, transcription, russian, tags, id } = props;
@@ -219,12 +219,12 @@ function WordString(props, { updateWord, deleteWord, LoadData }) {
 }
 
 export default inject(({ wordsData }) => {
-  const { updateWord, deleteWord, LoadData } = wordsData;
+  const { updateWord, deleteWord, loadData } = wordsData;
 
   return {
     updateWord,
     deleteWord,
-    LoadData,
+    loadData,
   };
 })(observer(WordString));
 

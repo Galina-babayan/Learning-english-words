@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 //import { WordsContext } from "../../context/Context";
 import { inject, observer } from "mobx-react";
 
-function StringAdd(props, { addWord, LoadData }) {
+function StringAdd(props, { addWord, loadData }) {
   //let { id } = props;
   const [isValidInput, setIsValidInput] = useState(true);
 
@@ -30,7 +30,7 @@ function StringAdd(props, { addWord, LoadData }) {
   //const {words} = wordsData;
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
 
   const handleEn = (event) => {
@@ -158,14 +158,14 @@ function StringAdd(props, { addWord, LoadData }) {
 }
 
 export default inject(({ wordsData }) => {
-  const { addWord, LoadData } = wordsData;
+  const { addWord, loadData } = wordsData;
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
   return {
     addWord,
-    LoadData,
+    loadData,
   };
 })(observer(StringAdd));
 

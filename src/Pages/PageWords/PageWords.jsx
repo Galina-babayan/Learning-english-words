@@ -13,10 +13,6 @@ function PageWords({ words, LoadData }) {
 
   //const words = wordsData.words;
 
-  useEffect(() => {
-    LoadData();
-  }, []);
-
   // const context = useContext(WordsContext);
   // const words = context.words;
 
@@ -83,11 +79,15 @@ function PageWords({ words, LoadData }) {
 }
 
 export default inject(({ wordsData }) => {
-  const { words, LoadData } = wordsData;
+  const { words, loadData } = wordsData;
+
+  useEffect(() => {
+    loadData();
+  });
 
   return {
     words,
-    LoadData,
+    loadData,
   };
 })(observer(PageWords));
 

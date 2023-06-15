@@ -9,14 +9,14 @@ import { useState, useEffect } from "react";
 import { observer, inject } from "mobx-react";
 //import { WordsContext } from "../../context/Context";
 
-function PageCards({ words, LoadData }) {
+function PageCards({ words, loadData }) {
   // const context = useContext(WordsContext);
   // const words = context.words;
   //const words = wordsData.words;
   console.log(words);
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
   let werbs = words.filter((item) => item.tags === `глагол`);
   let all = words;
@@ -199,11 +199,11 @@ function PageCards({ words, LoadData }) {
 }
 
 export default inject(({ wordsData }) => {
-  const { words, LoadData } = wordsData;
+  const { words, loadData } = wordsData;
 
   return {
     words,
-    LoadData,
+    loadData,
   };
 })(observer(PageCards));
 

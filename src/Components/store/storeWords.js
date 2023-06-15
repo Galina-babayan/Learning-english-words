@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 
-export default class Words {
+class Words {
   words = [];
   isLoaded = false;
   isLoading = false;
@@ -11,12 +11,14 @@ export default class Words {
   }
 
   loadData() {
-    if (this.isLoaded || this.isLoading) {
-      return;
-    }
-    this.isLoading(true);
+    // if (this.isLoaded || this.isLoading) {
+    //   return;
+    // }
+    //this.isLoading(true);
 
     try {
+      this.isLoading(true);
+      this.isLoaded(false);
       fetch("http://itgirlschool.justmakeit.ru/api/words")
         .then((response) => {
           if (response.ok) {
@@ -31,9 +33,9 @@ export default class Words {
           this.words = data;
         });
     } catch (error) {
+      this.error = error;
       this.isLoading = false;
       this.isLoaded = false;
-      this.error = error;
     }
   }
 
@@ -170,3 +172,4 @@ export default class Words {
   // });
   //   };
 }
+export default Words;

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { observer, inject } from "mobx-react";
 //import { WordsContext } from "../../context/Context";
 
-function Play({ words, LoadData }) {
+function Play({ words, loadData }) {
   // const context = useContext(WordsContext);
   // const words = context.words;
   //const words = wordsData.words;
@@ -17,7 +17,7 @@ function Play({ words, LoadData }) {
   let all = words;
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
 
   let animals = words.filter((item) => item.tags === `животные`);
@@ -277,14 +277,14 @@ function Play({ words, LoadData }) {
 }
 
 export default inject(({ wordsData }) => {
-  const { words, LoadData } = wordsData;
+  const { words, loadData } = wordsData;
 
   useEffect(() => {
-    LoadData();
+    loadData();
   });
   return {
     words,
-    LoadData,
+    loadData,
   };
 })(observer(Play));
 
